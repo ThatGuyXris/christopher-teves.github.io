@@ -1,0 +1,413 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import { site } from '../config/site';
+
+const allProjects = await getCollection('projects');
+const projects = allProjects.sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Christopher Teves — UX/UI Designer"
+  description={site.heroBio[0]}
+  navTheme="dark"
+>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO — olive bg
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="hero section--olive">
+    <div class="container hero__inner">
+
+      <div class="hero__text">
+        <h1 class="hero__name">
+          <span class="hero__name-line">Christopher</span>
+          <span class="hero__name-line">Teves</span>
+        </h1>
+
+        <div class="hero__bio">
+          {site.heroBio.map(paragraph => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+
+        <p class="hero__role">{site.role}</p>
+      </div>
+
+      <div class="hero__portrait">
+        <div class="hero__portrait-card">
+          <img
+            src="/images/portrait.png"
+            alt="Portrait of Christopher Teves"
+            width="480"
+            height="560"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       WAVE — olive → cream
+       ═══════════════════════════════════════════════════════════ -->
+  <WaveDivider direction="to-cream" />
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SELECT WORKS — cream bg
+       ═══════════════════════════════════════════════════════════ -->
+  <section id="select-works" class="works section--cream">
+    <div class="container">
+
+      <p class="works__label">Select works</p>
+
+      <ul class="works__list" role="list">
+        {projects.map((project, i) => (
+          <li class="works__item">
+            <hr class="works__rule" />
+            <a href={`/portfolio/${project.slug}`} class="works__link">
+              <span class="works__index">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span class="works__title">{project.data.title.toUpperCase()}</span>
+              <span class="works__platform">{project.data.platform}</span>
+              <span class="works__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+        <!-- Closing rule -->
+        <li aria-hidden="true"><hr class="works__rule" /></li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       WAVE — cream → olive
+       ═══════════════════════════════════════════════════════════ -->
+  <WaveDivider direction="to-olive" />
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FACTS — olive bg
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="facts section--olive">
+    <div class="container facts__inner">
+
+      <!-- Skills -->
+      <div class="facts__block">
+        <p class="facts__block-label">Skills</p>
+        <ul class="facts__list" role="list">
+          {site.skills.map(skill => (
+            <li>{skill}</li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Languages -->
+      <div class="facts__block">
+        <p class="facts__block-label">Languages</p>
+        <ul class="facts__list" role="list">
+          {site.languages.map(lang => (
+            <li>
+              <span class="facts__lang-name">{lang.name}</span>
+              <span class="facts__lang-level">{lang.level}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div class="facts__cta">
+        <h2 class="facts__cta-heading">{site.ctaHeading}</h2>
+        <p class="facts__cta-body">{site.ctaBody}</p>
+        <a
+          href={site.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="facts__cta-link"
+        >
+          {site.ctaLinkedInLabel}
+          <span aria-hidden="true"> →</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER — olive bg (no wave needed — same colour as Facts)
+       ═══════════════════════════════════════════════════════════ -->
+  <Footer />
+
+</BaseLayout>
+
+<style>
+  /* ── Hero ─────────────────────────────────────────────────────── */
+  .hero {
+    padding-top: 0; /* Nav sits above, no extra gap */
+    padding-bottom: 80px;
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 64px;
+    align-items: end;
+    padding-top: 40px;
+  }
+
+  .hero__name {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(56px, 8vw, 96px);
+    line-height: 0.96;
+    letter-spacing: var(--tracking-display);
+    color: var(--color-text-inverse);
+    margin-bottom: 32px;
+  }
+
+  .hero__name-line {
+    display: block;
+    text-transform: uppercase;
+  }
+
+  .hero__bio {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .hero__bio p {
+    font: var(--font-body-large);
+    color: var(--color-text-secondary);
+    max-width: 48ch;
+  }
+
+  .hero__role {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+
+  /* Portrait */
+  .hero__portrait {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .hero__portrait-card {
+    background-color: var(--color-action-accent); /* amber */
+    aspect-ratio: 6 / 7;
+    width: 100%;
+    max-width: 340px;
+    overflow: hidden;
+  }
+
+  .hero__portrait-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    mix-blend-mode: multiply; /* illustration blends into amber card */
+  }
+
+  /* ── Select Works ─────────────────────────────────────────────── */
+  .works {
+    padding-block: 80px;
+  }
+
+  .works__label {
+    font: var(--font-heading-3);
+    font-style: italic;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-secondary);
+    margin-bottom: 16px;
+  }
+
+  .works__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .works__rule {
+    border: none;
+    border-top: 1px solid var(--color-border-subtle);
+    margin: 0;
+  }
+
+  .works__link {
+    display: grid;
+    grid-template-columns: 40px 1fr auto auto;
+    align-items: center;
+    gap: 16px;
+    padding-block: 20px;
+    transition: opacity 0.15s ease;
+  }
+  .works__link:hover { opacity: 0.6; }
+
+  .works__index {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .works__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-primary);
+  }
+
+  .works__platform {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+  }
+
+  .works__arrow {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+  }
+
+  /* ── Facts ────────────────────────────────────────────────────── */
+  .facts {
+    padding-block: 96px;
+  }
+
+  .facts__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .facts__block-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+  }
+
+  .facts__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .facts__list li {
+    font: var(--font-body-medium);
+    color: var(--color-text-inverse);
+  }
+
+  .facts__lang-name {
+    display: block;
+    font: var(--font-body-medium);
+    color: var(--color-text-inverse);
+  }
+
+  .facts__lang-level {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+  }
+
+  /* CTA */
+  .facts__cta-heading {
+    font: var(--font-heading-3);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-inverse);
+    margin-bottom: 16px;
+  }
+
+  .facts__cta-body {
+    font: var(--font-body-medium);
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+    max-width: 36ch;
+  }
+
+  .facts__cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: var(--tracking-normal);
+    color: var(--color-action-accent); /* amber */
+    border-bottom: 1px solid var(--color-action-accent);
+    padding-bottom: 2px;
+    transition: opacity 0.15s ease;
+  }
+  .facts__cta-link:hover { opacity: 0.75; }
+
+  /* ── Mobile ───────────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .hero__inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .hero__portrait {
+      justify-content: flex-start;
+    }
+
+    .hero__portrait-card {
+      max-width: 100%;
+    }
+
+    .works {
+      padding-block: 56px;
+    }
+
+    .works__link {
+      grid-template-columns: 32px 1fr auto;
+    }
+    .works__platform { display: none; }
+
+    .works__title {
+      font-size: 13px;
+    }
+
+    .facts {
+      padding-block: 64px;
+    }
+
+    .facts__inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+
+  /* ── Tablet ───────────────────────────────────────────────────── */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .hero__inner {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .facts__inner {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .facts__cta {
+      grid-column: span 2;
+    }
+  }
+</style>

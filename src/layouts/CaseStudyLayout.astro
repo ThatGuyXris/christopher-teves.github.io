@@ -1,0 +1,290 @@
+---
+/**
+ * CaseStudyLayout — wraps every case study page.
+ *
+ * Page structure:
+ *   [cream]  Nav (light theme) + header + MetaRows
+ *   [wave]   cream → olive
+ *   [olive]  Final production heading + images
+ *   [wave]   olive → cream
+ *   [cream]  The process — processImage + markdown body (Discovery / Define / Results)
+ *   [olive]  Footer
+ */
+import BaseLayout from './BaseLayout.astro';
+import MetaRow from '../components/MetaRow.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import Footer from '../components/Footer.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'projects'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const d = entry.data;
+
+// Build MetaRow list from frontmatter — omit undefined/empty fields
+const metaRows: { label: string; body: string }[] = [
+  d.roleDetail
+    ? { label: 'Role & responsibility', body: d.roleDetail }
+    : { label: 'Role',                 body: d.role },
+  ...(d.description ? [{ label: 'Description', body: d.description }] : []),
+  { label: 'Platform',  body: d.platform },
+  { label: 'Work done', body: d.workDone },
+  { label: 'Timeframe', body: d.timeframe },
+  ...(d.award ? [{ label: 'Award', body: d.award }] : []),
+];
+---
+
+<BaseLayout
+  title={`${d.title} — Christopher Teves`}
+  description={d.description}
+  navTheme="light"
+>
+
+  <!-- ── HEADER (cream) ───────────────────────────────────────── -->
+  <section class="cs-header section--cream">
+    <div class="container cs-header__inner">
+
+      <div class="cs-header__text">
+        <a href="/" class="cs-header__back" aria-label="Back to homepage">
+          ← Back
+        </a>
+        <h1 class="cs-header__title">{d.title}</h1>
+      </div>
+
+      {d.heroImage && (
+        <div class="cs-header__image">
+          <img src={d.heroImage} alt={`${d.title} hero image`} />
+        </div>
+      )}
+
+    </div>
+  </section>
+
+  <!-- ── META ROWS (cream) ────────────────────────────────────── -->
+  <section class="cs-meta section--cream">
+    <div class="container">
+      <dl>
+        {metaRows.map(row => (
+          <MetaRow label={row.label} body={row.body} />
+        ))}
+        <!-- closing rule -->
+        <div class="cs-meta__closing-rule"><hr /></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ── WAVE (cream → olive) ─────────────────────────────────── -->
+  <WaveDivider direction="to-olive" />
+
+  <!-- ── FINAL PRODUCTION (olive) ─────────────────────────────── -->
+  <section class="cs-final section--olive">
+    <div class="container">
+      <h2 class="cs-final__heading">Final production</h2>
+
+      {d.finalProductionImages && d.finalProductionImages.length > 0 ? (
+        <div class="cs-final__images">
+          {d.finalProductionImages.map((src: string, i: number) => (
+            <img
+              src={src}
+              alt={`${d.title} final production screenshot ${i + 1}`}
+              class="cs-final__image"
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="cs-final__placeholder">
+          {/* Images will be added when available */}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- ── WAVE (olive → cream) ─────────────────────────────────── -->
+  <WaveDivider direction="to-cream" />
+
+  <!-- ── THE PROCESS (cream) ──────────────────────────────────── -->
+  <section class="cs-process section--cream">
+    <div class="container">
+      <h2 class="cs-process__heading">The process</h2>
+
+      {d.processImage && (
+        <div class="cs-process__diagram">
+          <img src={d.processImage} alt={`${d.title} process diagram`} />
+        </div>
+      )}
+
+      <!-- Markdown body: Discovery / Define / Results sub-sections -->
+      <div class="cs-process__content prose">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER (olive) ───────────────────────────────────────── -->
+  <Footer />
+
+</BaseLayout>
+
+<style>
+  /* ── Header ─────────────────────────────────────────────────── */
+  .cs-header {
+    padding-top: 48px;
+    padding-bottom: 64px;
+  }
+
+  .cs-header__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .cs-header__back {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+    transition: color 0.15s ease;
+  }
+  .cs-header__back:hover { color: var(--color-text-primary); }
+
+  .cs-header__title {
+    font: var(--font-heading-1);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-primary);
+  }
+
+  .cs-header__image {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: var(--color-surface-primary);
+  }
+
+  .cs-header__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ── Meta rows ───────────────────────────────────────────────── */
+  .cs-meta {
+    padding-bottom: 64px;
+  }
+
+  .cs-meta__closing-rule hr {
+    border: none;
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  /* ── Final production ───────────────────────────────────────── */
+  .cs-final {
+    padding-block: 80px;
+  }
+
+  .cs-final__heading {
+    font: var(--font-heading-2);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-inverse);
+    margin-bottom: 40px;
+  }
+
+  .cs-final__images {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .cs-final__image {
+    width: 100%;
+    display: block;
+  }
+
+  .cs-final__placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: rgba(232, 229, 219, 0.08);
+    border: 1px dashed rgba(232, 229, 219, 0.2);
+  }
+
+  /* ── The process ─────────────────────────────────────────────── */
+  .cs-process {
+    padding-block: 80px;
+  }
+
+  .cs-process__heading {
+    font: var(--font-heading-2);
+    font-style: italic;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-primary);
+    margin-bottom: 40px;
+  }
+
+  .cs-process__diagram {
+    margin-bottom: 56px;
+  }
+
+  .cs-process__diagram img {
+    width: 100%;
+  }
+
+  /* ── Prose (markdown body) ───────────────────────────────────── */
+  .prose :global(h2) {
+    font: var(--font-heading-3);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-primary);
+    margin-top: 56px;
+    margin-bottom: 16px;
+  }
+
+  .prose :global(h3) {
+    font: var(--font-heading-4);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-primary);
+    margin-top: 40px;
+    margin-bottom: 12px;
+  }
+
+  .prose :global(p) {
+    font: var(--font-body-medium);
+    color: var(--color-text-primary);
+    margin-bottom: 16px;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: 20px;
+    margin-bottom: 16px;
+  }
+
+  .prose :global(ul) { list-style: disc; }
+  .prose :global(ol) { list-style: decimal; }
+
+  .prose :global(li) {
+    font: var(--font-body-medium);
+    color: var(--color-text-primary);
+    margin-bottom: 6px;
+  }
+
+  /* ── Mobile ─────────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .cs-header {
+      padding-top: 32px;
+      padding-bottom: 40px;
+    }
+
+    .cs-header__inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .cs-final,
+    .cs-process {
+      padding-block: 56px;
+    }
+  }
+</style>

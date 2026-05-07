@@ -1,0 +1,52 @@
+---
+/**
+ * WaveDivider — renders the wave SVG that transitions between olive and cream sections.
+ *
+ * direction="to-cream"  → olive section above, cream section below (default)
+ * direction="to-olive"  → cream section above, olive section below (SVG flipped vertically)
+ *
+ * The SVG fill is cream (#E8E5DB). Placing it at the bottom of an olive section
+ * (to-cream) shows the cream fill naturally. Flipping it (to-olive) makes the
+ * cream fill sit at the top of the wave so the olive bg shows through below.
+ *
+ * Background on the divider element itself must match the SECTION ABOVE it
+ * so no gap appears at the join.
+ */
+interface Props {
+  direction?: 'to-cream' | 'to-olive';
+}
+const { direction = 'to-cream' } = Astro.props;
+---
+
+<div class={`wave-divider wave-divider--${direction}`} aria-hidden="true">
+  <img
+    src="/wave-separator.svg"
+    alt=""
+    class={`wave wave--${direction}`}
+    width="1440"
+    height="80"
+    loading="eager"
+  />
+</div>
+
+<style>
+  .wave-divider {
+    display: block;
+    line-height: 0;
+    font-size: 0;
+  }
+
+  /* The wrapper bg matches the section ABOVE the wave */
+  .wave-divider--to-cream { background-color: var(--color-surface-inverse); }
+  .wave-divider--to-olive { background-color: var(--color-surface-page);    }
+
+  .wave {
+    width: 100%;
+    display: block;
+  }
+
+  /* Flip vertically for cream → olive transition */
+  .wave--to-olive {
+    transform: scaleY(-1);
+  }
+</style>

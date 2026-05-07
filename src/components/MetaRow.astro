@@ -1,0 +1,73 @@
+---
+/**
+ * MetaRow — label/body two-column row used throughout case study pages.
+ *
+ * label: left column — Inter Bold 11px uppercase, secondary colour
+ * body:  right column — Inter Regular 13px, primary colour
+ *
+ * A subtle horizontal rule sits above each row.
+ */
+interface Props {
+  label: string;
+  body: string;
+}
+const { label, body } = Astro.props;
+---
+
+<div class="meta-row">
+  <hr class="meta-row__rule" />
+  <div class="meta-row__content">
+    <dt class="meta-row__label">{label}</dt>
+    <dd class="meta-row__body">{body}</dd>
+  </div>
+</div>
+
+<style>
+  .meta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .meta-row__rule {
+    border: none;
+    border-top: 1px solid var(--color-border-subtle);
+    margin: 0;
+  }
+
+  .meta-row__content {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 16px;
+    padding-block: 16px;
+  }
+
+  .meta-row__label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 1.45;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    padding-top: 2px; /* optical alignment with body text */
+  }
+
+  .meta-row__body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.615;
+    letter-spacing: var(--tracking-normal);
+    color: var(--color-text-primary);
+  }
+
+  /* Mobile — stack label above body */
+  @media (max-width: 768px) {
+    .meta-row__content {
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding-block: 14px;
+    }
+  }
+</style>
