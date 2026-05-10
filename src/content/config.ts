@@ -24,6 +24,8 @@ const projects = defineCollection({
     competitorImage: z.string().optional(),
     // Short paragraph rendered below the process image
     processNote: z.string().optional(),
+    // Hide the "The process" h2 heading (e.g. when text is used as processNote instead)
+    hideProcessHeading: z.boolean().optional(),
     // Override "Final production" heading per case study
     finalProductionTitle: z.string().optional(),
     // Side-by-side layout: first image right, description text left

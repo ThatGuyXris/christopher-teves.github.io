@@ -171,7 +171,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
           <!-- The process -->
           <div class="process-section">
-            <h2 class="olive-heading process-heading">The process</h2>
+            {!d.hideProcessHeading && (
+              <h2 class="olive-heading process-heading">The process</h2>
+            )}
 
             {d.processImage && (
               <div style="width:100%;margin-bottom:0;">

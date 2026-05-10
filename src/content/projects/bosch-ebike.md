@@ -11,6 +11,8 @@ heroImage: /images/bosch-ebike-hero.png
 finalProductionImages:
   - /images/bosch-ebike-final-01.png
 processImage: /images/Double-diamond.jpg
+hideProcessHeading: true
+processNote: "I follow the Double Diamond method in my design process. This approach helps streamline and enhance creativity while ensuring it establishes a known milestone and engages the team throughout this project."
 finalProductionTitle: "Delivery & Impact"
 finalProductionSideBySide: true
 finalProductionText:
@@ -18,10 +20,6 @@ finalProductionText:
   - "This not only made the experience more engaging and personal but also opened up new opportunities for Bosch to grow features like forums, challenges, and events."
 order: 2
 ---
-
-### The process
-
-I follow the Double Diamond method in my design process. This approach helps streamline and enhance creativity while ensuring it establishes a known milestone and engages the team throughout this project.
 
 ### The challenge
 
