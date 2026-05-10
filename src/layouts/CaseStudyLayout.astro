@@ -327,10 +327,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     margin-inline: auto;
   }
 
+  /* Allow side-by-side section to use full container width */
+  .delivery-section {
+    width: 100%;
+  }
+
   /* Side-by-side delivery layout */
   .delivery-sidebyside {
     display: grid;
-    grid-template-columns: 45fr 55fr;
+    grid-template-columns: 35fr 65fr;
     gap: 56px;
     align-items: start;
   }
