@@ -1,12 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import WaveDivider from '../components/WaveDivider.astro';
+import Divider from '../components/Divider.astro';
 import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
 import { site } from '../config/site';
 
 const allProjects = await getCollection('projects');
 const projects = allProjects.sort((a, b) => a.data.order - b.data.order);
+
+const projectLinks = [
+  { slug: 'verisure-automation',  title: 'Verisure Automation' },
+  { slug: 'bosch-ebike',          title: 'Bosch eBike' },
+  { slug: 'design-systems',       title: 'Design Systems' },
+  { slug: 'sinch-conversation-api', title: 'Sinch Conversation API' },
+  { slug: 'verisure-innovation',  title: 'Verisure Innovation' },
+  { slug: 'draftit',              title: 'Draftit' },
+];
 ---
 
 <BaseLayout
@@ -17,397 +26,397 @@ const projects = allProjects.sort((a, b) => a.data.order - b.data.order);
 
   <!-- ═══════════════════════════════════════════════════════════
        HERO — olive bg
+       Portrait is absolutely positioned behind the display name.
+       Name sits in front (z-index 3), portrait behind (z-index 1).
        ═══════════════════════════════════════════════════════════ -->
-  <section class="hero section--olive">
-    <div class="container hero__inner">
+  <header class="section--olive">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-stage">
 
-      <div class="hero__text">
-        <h1 class="hero__name">
-          <span class="hero__name-line">Christopher</span>
-          <span class="hero__name-line">Teves</span>
-        </h1>
+          <!-- Portrait — bleeds behind the name, no frame -->
+          <div class="hero-portrait" aria-hidden="false">
+            <img
+              src="/images/portrait.png"
+              alt="Portrait of Christopher Teves"
+              loading="eager"
+            />
+          </div>
 
-        <div class="hero__bio">
-          {site.heroBio.map(paragraph => (
-            <p>{paragraph}</p>
-          ))}
+          <!-- Display name — in front of portrait -->
+          <h1 class="hero-name">
+            CHRISTOPHER
+            <span class="hero-name__teves">TEVES</span>
+          </h1>
+
+          <!-- Bio — below/beside name, in front of portrait -->
+          <div class="hero-bio">
+            {site.heroBio.map(paragraph => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+
         </div>
-
-        <p class="hero__role">{site.role}</p>
       </div>
-
-      <div class="hero__portrait">
-        <div class="hero__portrait-card">
-          <img
-            src="/images/portrait.png"
-            alt="Portrait of Christopher Teves"
-            width="480"
-            height="560"
-            loading="eager"
-          />
-        </div>
-      </div>
-
-    </div>
-  </section>
+    </section>
+  </header>
 
   <!-- ═══════════════════════════════════════════════════════════
-       WAVE — olive → cream
+       DIVIDER — olive → cream (left-up diagonal)
        ═══════════════════════════════════════════════════════════ -->
-  <WaveDivider direction="to-cream" />
+  <Divider from="olive" to="cream" direction="left-up" />
 
   <!-- ═══════════════════════════════════════════════════════════
        SELECT WORKS — cream bg
+       Background mockup image with parallax + top/bottom fade mask.
+       Left: italic "Select works" label. Right: large underlined links.
        ═══════════════════════════════════════════════════════════ -->
-  <section id="select-works" class="works section--cream">
-    <div class="container">
+  <section class="section--cream works" id="works">
 
-      <p class="works__label">Select works</p>
+    <!-- Parallax background image -->
+    <div class="works-bg" aria-hidden="true"></div>
 
-      <ul class="works__list" role="list">
-        {projects.map((project, i) => (
-          <li class="works__item">
-            <hr class="works__rule" />
-            <a href={`/christopher-teves.github.io/portfolio/${project.slug}`} class="works__link">
-              <span class="works__index">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <span class="works__title">{project.data.title.toUpperCase()}</span>
-              <span class="works__platform">{project.data.platform}</span>
-              <span class="works__arrow" aria-hidden="true">→</span>
-            </a>
+    <div class="container works-inner">
+      <div class="works-eyebrow">Select works</div>
+      <ul class="works-list" role="list">
+        {projectLinks.map(p => (
+          <li>
+            <a href={`/portfolio/${p.slug}`}>{p.title}</a>
           </li>
         ))}
-        <!-- Closing rule -->
-        <li aria-hidden="true"><hr class="works__rule" /></li>
       </ul>
-
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════
-       WAVE — cream → olive
+       DIVIDER — cream → olive (right-up diagonal)
        ═══════════════════════════════════════════════════════════ -->
-  <WaveDivider direction="to-olive" />
+  <Divider from="cream" to="olive" direction="right-up" />
 
   <!-- ═══════════════════════════════════════════════════════════
        FACTS — olive bg
+       "Facts" italic heading, skills, languages, CTA
        ═══════════════════════════════════════════════════════════ -->
-  <section class="facts section--olive">
-    <div class="container facts__inner">
+  <section class="section--olive facts">
+    <div class="container">
 
-      <!-- Skills -->
-      <div class="facts__block">
-        <p class="facts__block-label">Skills</p>
-        <ul class="facts__list" role="list">
-          {site.skills.map(skill => (
-            <li>{skill}</li>
-          ))}
-        </ul>
+      <h2 class="facts-heading"><em>Facts</em></h2>
+
+      <div class="facts-grid">
+
+        <!-- Skills — pipe-separated inline spans -->
+        <div class="facts-col">
+          <h4>Skills</h4>
+          <div class="facts-skills">
+            {site.skills.map((skill, i) => (
+              <span>{skill}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="facts-col">
+          <h4>Languages</h4>
+          <ul class="facts-langs" role="list">
+            {site.languages.map(lang => (
+              <li>{lang}</li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="facts-col facts-cta">
+          <h3>{site.ctaHeading}</h3>
+          <p>
+            {site.ctaBody}
+            {' '}
+            <a
+              href={site.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >{site.ctaLinkedInLabel}</a>
+          </p>
+        </div>
+
       </div>
-
-      <!-- Languages -->
-      <div class="facts__block">
-        <p class="facts__block-label">Languages</p>
-        <ul class="facts__list" role="list">
-          {site.languages.map(lang => (
-            <li>
-              <span class="facts__lang-name">{lang.name}</span>
-              <span class="facts__lang-level">{lang.level}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- CTA -->
-      <div class="facts__cta">
-        <h2 class="facts__cta-heading">{site.ctaHeading}</h2>
-        <p class="facts__cta-body">{site.ctaBody}</p>
-        <a
-          href={site.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="facts__cta-link"
-        >
-          {site.ctaLinkedInLabel}
-          <span aria-hidden="true"> →</span>
-        </a>
-      </div>
-
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════
-       FOOTER — olive bg (no wave needed — same colour as Facts)
+       DIVIDER — olive → cream-light (before footer)
        ═══════════════════════════════════════════════════════════ -->
-  <Footer />
+  <Divider from="olive" to="creamLight" direction="left-up" />
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER — cream variant
+       ═══════════════════════════════════════════════════════════ -->
+  <Footer theme="cream" />
 
 </BaseLayout>
+
+<!-- Parallax scroll for the Select Works background -->
+<script>
+  const bg = document.querySelector('.works-bg') as HTMLElement | null;
+  const section = document.getElementById('works');
+  if (bg && section) {
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const rect = section.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      const progress = (vh - rect.top) / (vh + rect.height);
+      const clamped = Math.max(0, Math.min(1, progress));
+      const y = (0.5 - clamped) * 480;
+      bg.style.setProperty('--parallax-y', y.toFixed(1) + 'px');
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+  }
+</script>
 
 <style>
   /* ── Hero ─────────────────────────────────────────────────────── */
   .hero {
-    padding-top: 0; /* Nav sits above, no extra gap */
-    padding-bottom: 80px;
+    padding: 56px 0 80px;
+    position: relative;
   }
 
-  .hero__inner {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 64px;
-    align-items: end;
-    padding-top: 40px;
-  }
-
-  .hero__name {
-    display: flex;
-    flex-direction: column;
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: clamp(56px, 8vw, 96px);
-    line-height: 0.96;
-    letter-spacing: var(--tracking-display);
-    color: var(--color-text-inverse);
-    margin-bottom: 32px;
-  }
-
-  .hero__name-line {
-    display: block;
-    text-transform: uppercase;
-  }
-
-  .hero__bio {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-
-  .hero__bio p {
-    font: var(--font-body-large);
-    color: var(--color-text-secondary);
-    max-width: 48ch;
-  }
-
-  .hero__role {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 13px;
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
-    color: var(--color-text-secondary);
-  }
-
-  /* Portrait */
-  .hero__portrait {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-  }
-
-  .hero__portrait-card {
-    background-color: var(--color-action-accent); /* amber */
-    aspect-ratio: 6 / 7;
-    width: 100%;
-    max-width: 340px;
+  /* Stage: portrait + name + bio occupy the same space */
+  .hero-stage {
+    position: relative;
+    min-height: clamp(560px, 70vw, 920px);
     overflow: hidden;
   }
 
-  .hero__portrait-card img {
+  /* Portrait — absolute, bleeds right, sits behind name */
+  .hero-portrait {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: clamp(280px, 42%, 560px);
+    max-width: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero-portrait img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    mix-blend-mode: multiply; /* illustration blends into amber card */
+    height: auto;
+    display: block;
+  }
+
+  /* Display name — Lilita One, amber-200, in front */
+  .hero-name {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(64px, 12vw, 184px);
+    line-height: 0.92;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    color: var(--color-amber-200);
+    position: relative;
+    z-index: 3;
+    pointer-events: none;
+    margin: 0;
+  }
+
+  .hero-name__teves {
+    display: block;
+    font-size: 0.78em;
+  }
+
+  /* Bio — z-index 2 (between portrait and name) */
+  .hero-bio {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 44ch;
+    margin-top: clamp(24px, 3vw, 48px);
+  }
+  .hero-bio p {
+    font: 400 15px/1.65 var(--font-sans);
+    color: var(--color-cream-400);
+    letter-spacing: 0.1px;
   }
 
   /* ── Select Works ─────────────────────────────────────────────── */
   .works {
-    padding-block: 80px;
+    padding: 96px 0 120px;
+    position: relative;
+    overflow: hidden;
   }
 
-  .works__label {
-    font: var(--font-heading-3);
-    font-style: italic;
-    letter-spacing: var(--tracking-tight);
-    color: var(--color-text-secondary);
-    margin-bottom: 16px;
+  /* Parallax background image — fades top & bottom */
+  .works-bg {
+    position: absolute;
+    top: -400px;
+    left: 0;
+    right: 0;
+    bottom: -400px;
+    background-image: url('/images/works-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 45%,
+      #000 55%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 45%,
+      #000 55%,
+      transparent 100%
+    );
+    transform: translate3d(0, var(--parallax-y, 0px), 0);
+    will-change: transform;
   }
 
-  .works__list {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .works__rule {
-    border: none;
-    border-top: 1px solid var(--color-border-subtle);
-    margin: 0;
-  }
-
-  .works__link {
+  .works-inner {
+    position: relative; /* above the bg */
     display: grid;
-    grid-template-columns: 40px 1fr auto auto;
-    align-items: center;
-    gap: 16px;
-    padding-block: 20px;
-    transition: opacity 0.15s ease;
-  }
-  .works__link:hover { opacity: 0.6; }
-
-  .works__index {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 11px;
-    color: var(--color-text-secondary);
-    letter-spacing: var(--tracking-wide);
-  }
-
-  .works__title {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: var(--tracking-wide);
-    color: var(--color-text-primary);
-  }
-
-  .works__platform {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    color: var(--color-text-secondary);
-  }
-
-  .works__arrow {
-    font-size: 16px;
-    color: var(--color-text-secondary);
-  }
-
-  /* ── Facts ────────────────────────────────────────────────────── */
-  .facts {
-    padding-block: 96px;
-  }
-
-  .facts__inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     gap: 64px;
     align-items: start;
   }
 
-  .facts__block-label {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 11px;
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
-    color: var(--color-text-secondary);
-    margin-bottom: 20px;
+  /* "Select works" — Space Grotesk italic, large */
+  .works-eyebrow {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 56px;
+    letter-spacing: -0.5px;
+    color: var(--color-cream-600);
+    line-height: 1.1;
   }
 
-  .facts__list {
+  /* Project links — Lilita One, very large, underlined, olive-400 */
+  .works-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 4px;
   }
-
-  .facts__list li {
-    font: var(--font-body-medium);
-    color: var(--color-text-inverse);
-  }
-
-  .facts__lang-name {
+  .works-list a {
     display: block;
-    font: var(--font-body-medium);
-    color: var(--color-text-inverse);
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(36px, 5.6vw, 84px);
+    line-height: 1.02;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    color: var(--color-olive-400);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+    transition: color 200ms ease;
+  }
+  .works-list a:hover { color: var(--color-amber-500); }
+
+  /* ── Facts ────────────────────────────────────────────────────── */
+  .facts {
+    padding: 96px 0 120px;
   }
 
-  .facts__lang-level {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    color: var(--color-text-secondary);
+  .facts-heading {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 56px;
+    letter-spacing: -1.5px;
+    margin: 0 0 56px;
+    color: var(--color-cream-400);
+  }
+  .facts-heading em {
+    color: var(--color-amber-200);
+    font-style: inherit;
+  }
+
+  .facts-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr 1.2fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  .facts-col h4 {
+    font: 500 13px/1 var(--font-sans);
+    margin: 0 0 18px;
+    color: var(--color-cream-400);
+    letter-spacing: 0.2px;
+  }
+
+  /* Skills — pipe-separated inline spans */
+  .facts-skills {
+    font: 400 12.5px/1.7 var(--font-sans);
+    color: var(--color-cream-400);
+    letter-spacing: 0.1px;
+  }
+  .facts-skills span::after {
+    content: ' | ';
+    color: var(--color-cream-500);
+  }
+  .facts-skills span:last-child::after { content: ''; }
+
+  /* Languages */
+  .facts-langs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .facts-langs li {
+    font: 400 13px/1.6 var(--font-sans);
+    color: var(--color-cream-400);
   }
 
   /* CTA */
-  .facts__cta-heading {
-    font: var(--font-heading-3);
-    letter-spacing: var(--tracking-tight);
-    color: var(--color-text-inverse);
-    margin-bottom: 16px;
+  .facts-cta h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 22px;
+    margin: 0 0 12px;
+    color: var(--color-cream-400);
+    letter-spacing: -0.4px;
   }
-
-  .facts__cta-body {
-    font: var(--font-body-medium);
-    color: var(--color-text-secondary);
-    margin-bottom: 24px;
-    max-width: 36ch;
+  .facts-cta p {
+    font: 400 14px/1.6 var(--font-sans);
+    margin: 0;
+    color: var(--color-cream-400);
   }
-
-  .facts__cta-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: var(--tracking-normal);
-    color: var(--color-action-accent); /* amber */
-    border-bottom: 1px solid var(--color-action-accent);
-    padding-bottom: 2px;
+  .facts-cta a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: var(--color-cream-400);
     transition: opacity 0.15s ease;
   }
-  .facts__cta-link:hover { opacity: 0.75; }
+  .facts-cta a:hover { opacity: 0.7; }
 
-  /* ── Mobile ───────────────────────────────────────────────────── */
-  @media (max-width: 768px) {
-    .hero__inner {
+  /* ── Responsive ───────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero-portrait {
+      position: relative;
+      top: auto;
+      right: auto;
+      width: 80%;
+      margin: 24px auto 0;
+    }
+    .hero-name { font-size: 64px; }
+    .hero-stage { min-height: 0; }
+
+    .works-inner {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 32px;
     }
+    .works-eyebrow { font-size: 40px; }
 
-    .hero__portrait {
-      justify-content: flex-start;
-    }
-
-    .hero__portrait-card {
-      max-width: 100%;
-    }
-
-    .works {
-      padding-block: 56px;
-    }
-
-    .works__link {
-      grid-template-columns: 32px 1fr auto;
-    }
-    .works__platform { display: none; }
-
-    .works__title {
-      font-size: 13px;
-    }
-
-    .facts {
-      padding-block: 64px;
-    }
-
-    .facts__inner {
-      grid-template-columns: 1fr;
-      gap: 48px;
-    }
-  }
-
-  /* ── Tablet ───────────────────────────────────────────────────── */
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .hero__inner {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .facts__inner {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .facts__cta {
-      grid-column: span 2;
-    }
+    .facts-grid { grid-template-columns: 1fr; gap: 32px; }
+    .facts-heading { font-size: 40px; }
   }
 </style>

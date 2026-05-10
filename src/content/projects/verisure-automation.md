@@ -2,12 +2,12 @@
 title: Verisure Automation
 slug: verisure-automation
 role: UX/UI Designer
-roleDetail: As a UX/UI designer on the team, I played a pivotal role in designing the user interface and experience for the automation features — from early discovery through to final delivery.
-description: The project focused on reimagining the automation features of the Verisure app, making it easier for customers to set up and manage their home security routines.
+roleDetail: As a UX/UI designer on the team, I played a pivotal role in shaping the user experience for the Automation feature, contributing to both the design process and strategic decision-making. My primary responsibility was to collaborate closely with cross-functional teams to deliver user-centered solutions. This involved analyzing user feedback, competitor products, and usage data to uncover pain points and opportunities. These insights guided design decisions and helped us prioritize features that would enhance the overall user experience.
+description: The project focused on reimagining the automation features of the Verisure app to enhance user engagement, simplify security routines, and empower customers with seamless, worry-free protection. The business challenge was to increase the daily usage of the alarm system and reduce churn by addressing customers' need for effortless, intelligent automation that adds real value to their daily lives.
 platform: App
-workDone: Research & strategy, wire-framing & prototyping, usability testing, accessibility design
+workDone: My work included research & strategy, wire-framing & prototyping, usability testing, accessibility design.
 timeframe: 6 months
-award: Red Dot Award 2023
+award: Red Dot Awards 2023
 heroImage: /images/verisure-automation-hero.png
 finalProductionImages:
   - /images/verisure-automation-final-01.png
@@ -16,22 +16,26 @@ processImage: /images/verisure-automation-process.png
 order: 1
 ---
 
-## Discovery
+At Verisure, we consistently strive to implement a BXT (Business, Experience, and Technology) approach, ensuring a balanced and holistic way of working. This methodology allows us to align our design objectives with broader company goals, fostering collaboration between business strategy, user experience, and technological innovation. By integrating these three pillars, we create solutions that not only meet user needs but also drive business growth and maintain technical feasibility.
 
-During the initial phase, the focus was on thoroughly understanding user needs, pain points, and the existing automation landscape. I conducted user interviews, analysed support tickets, and ran competitive benchmarking sessions to identify where customers were struggling most.
+### Discovery
 
-Key findings showed that users found the existing automation setup confusing, with too many steps and unclear feedback when automations were triggered.
+During the initial phase, the focus was on thoroughly understanding user needs and behaviors to uncover key opportunities for improving the Automation features of the Verisure app. We conducted competitor analysis to assess how similar products were meeting user needs and to identify opportunities for improvement by uncovering gaps in the market. The primary objective was to improve user engagement, simplify complex workflows, and enable customers to seamlessly integrate security routines into their daily lives without disruption. By analyzing usage data and user feedback, we aimed to highlight friction points and develop insights that would guide the design direction.
 
-## Define
+The business challenge was clear: increase daily alarm system usage and reduce churn by delivering a solution that is intuitive and provides real value to users. This phase was crucial for defining user-centered opportunities that would lead to higher satisfaction, increased retention, and better overall adoption of security features.
 
-During this phase I actively contributed to A/B testing and synthesis workshops, translating research insights into defined problem statements and user stories. Working closely with the product team, we established clear design principles for the new automation experience:
+### Define
 
-- Reduce the steps required to create an automation
-- Surface automation status clearly on the home screen
-- Provide immediate, unambiguous feedback when an automation activates
+During this phase I actively contributed to A/B testing with real users to compare various design iterations. This involved gathering both qualitative and quantitative data on user behavior, preferences, and pain points.
 
-## Results
+#### Pain points
 
-User testing showed that customers were able to complete the Automation setup in half the time compared to the previous version. Task success rates increased from 61% to 94% across the core flows, and post-launch NPS scores for the automation feature improved by 22 points.
+- The early designs of the automation feature lacked sufficient adaptability, making it difficult for users to customize routines to fit their specific needs and preferences, resulting in low engagement and underutilization of the feature.
+- The system lacked clear, context-based instructions, which made it difficult for users to set up automation routines.
+- The market demand for more user-friendly, accessible smart home integrations (for both villa and apartment owners) was unmet.
 
-The redesign was recognised with a Red Dot Award in 2023 for outstanding interaction design.
+By carefully analyzing user interactions, we identified key insights and patterns that helped refine the design. These insights allowed us to make informed decisions that aligned with both user needs and business goals. The data-driven approach ensured that the final design effectively addressed the problems identified in the Discovery phase, leading to a product that meets users' expectations and improves the overall user experience.
+
+### Results
+
+User testing showed that customers were able to complete the Automation setup in half the time compared to the previous version, indicating that the simplified process significantly reduced cognitive load and made the setup more intuitive. The introduction of a modern, consistent design boosted user engagement, making the feature easier to adopt and fostering deeper connections with the product. These improvements also positioned Verisure to better compete with leading home automation brands like Samsung and Apple, offering a simple yet scalable solution that appeals to both casual users and advanced tech enthusiasts, enhancing the product's overall market competitiveness.

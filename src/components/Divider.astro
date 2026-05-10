@@ -1,0 +1,70 @@
+---
+/**
+ * Divider — straight diagonal SVG transition between sections.
+ * Replaces the wave SVG. Matches the design prototype exactly.
+ *
+ * from / to: 'olive' | 'cream' | 'creamLight'
+ *   olive      → var(--color-olive-400)
+ *   cream      → var(--color-cream-400)
+ *   creamLight → var(--color-cream-300)  (used before the footer)
+ *
+ * direction:
+ *   'left-up'  → diagonal rises left-to-right  (default)
+ *               SVG polygon sits bottom-right — reveals `to` colour in that corner
+ *   'right-up' → diagonal falls left-to-right
+ *               SVG polygon sits bottom-left — reveals `to` colour in that corner
+ *
+ * height: SVG height in px (default 80)
+ */
+interface Props {
+  from?: 'olive' | 'cream' | 'creamLight';
+  to?: 'olive' | 'cream' | 'creamLight';
+  direction?: 'left-up' | 'right-up';
+  height?: number;
+}
+
+const {
+  from = 'olive',
+  to = 'cream',
+  direction = 'left-up',
+  height = 80,
+} = Astro.props;
+
+const colorMap: Record<string, string> = {
+  olive:      'var(--color-olive-400)',
+  cream:      'var(--color-cream-400)',
+  creamLight: 'var(--color-cream-300)',
+};
+
+const fromColor = colorMap[from];
+const toColor   = colorMap[to];
+
+// left-up:  low-left → high-right; to-colour triangle fills bottom-right
+// right-up: high-left → low-right; to-colour triangle fills bottom-left
+const points = direction === 'left-up'
+  ? '0,80 100,40 100,80'
+  : '0,40 100,80 0,80';
+---
+
+<div
+  class="divider"
+  style={`background: ${fromColor}; height: ${height}px;`}
+  aria-hidden="true"
+>
+  <svg
+    viewBox="0 0 100 80"
+    preserveAspectRatio="none"
+    style="width:100%;height:100%;display:block;"
+  >
+    <polygon points={points} fill={toColor} />
+  </svg>
+</div>
+
+<style>
+  .divider {
+    width: 100%;
+    display: block;
+    line-height: 0;
+    font-size: 0;
+  }
+</style>

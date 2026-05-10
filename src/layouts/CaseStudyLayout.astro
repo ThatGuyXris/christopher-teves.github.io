@@ -2,18 +2,19 @@
 /**
  * CaseStudyLayout — wraps every case study page.
  *
- * Page structure:
- *   [cream]  Nav (light theme) + header + MetaRows
- *   [wave]   cream → olive
- *   [olive]  Final production heading + images
- *   [wave]   olive → cream
- *   [cream]  The process — processImage + markdown body (Discovery / Define / Results)
- *   [olive]  Footer
+ * Page structure (matching the design prototype):
+ *   [cream-500]  Nav (light) + case-hero: title + two-column grid (meta | image)
+ *   [diagonal]   cream → olive
+ *   [olive]      "Final production" h2 + images
+ *                "The process" h2 + process diagram + BXT paragraph
+ *                ContentSection: Discovery / Define / Results
+ *   [diagonal]   olive → cream-light
+ *   [cream-300]  Footer (cream variant)
  */
-import BaseLayout from './BaseLayout.astro';
-import MetaRow from '../components/MetaRow.astro';
-import WaveDivider from '../components/WaveDivider.astro';
+import Nav from '../components/Nav.astro';
+import Divider from '../components/Divider.astro';
 import Footer from '../components/Footer.astro';
+import '../styles/global.css';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -24,267 +25,297 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 const d = entry.data;
 
-// Build MetaRow list from frontmatter — omit undefined/empty fields
-const metaRows: { label: string; body: string }[] = [
-  d.roleDetail
-    ? { label: 'Role & responsibility', body: d.roleDetail }
-    : { label: 'Role',                 body: d.role },
-  ...(d.description ? [{ label: 'Description', body: d.description }] : []),
-  { label: 'Platform',  body: d.platform },
-  { label: 'Work done', body: d.workDone },
-  { label: 'Timeframe', body: d.timeframe },
-  ...(d.award ? [{ label: 'Award', body: d.award }] : []),
+// Meta rows to display — omit undefined fields
+const metaSections: { label: string; body: string | string[] }[] = [
+  ...(d.roleDetail ? [{ label: 'Role and responsibility', body: [d.roleDetail] }] : [{ label: 'Role', body: [d.role] }]),
+  ...(d.description ? [{ label: 'Description', body: [d.description] }] : []),
+  ...(d.platform ? [{ label: 'Platform', body: [d.platform] }] : []),
+  ...(d.workDone ? [{ label: 'Work done', body: [d.workDone] }] : []),
+  ...(d.timeframe ? [{ label: 'Timeframe', body: [d.timeframe] }] : []),
+  ...(d.award ? [{ label: 'Awards', body: [d.award] }] : []),
 ];
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<BaseLayout
-  title={`${d.title} — Christopher Teves`}
-  description={d.description}
-  navTheme="light"
->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{d.title} — Christopher Teves</title>
+    <meta name="description" content={d.description ?? `${d.title} — Case study by Christopher Teves`} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
 
-  <!-- ── HEADER (cream) ───────────────────────────────────────── -->
-  <section class="cs-header section--cream">
-    <div class="container cs-header__inner">
+  <body class="case-body">
 
-      <div class="cs-header__text">
-        <a href="/" class="cs-header__back" aria-label="Back to homepage">
-          ← Back
-        </a>
-        <h1 class="cs-header__title">{d.title}</h1>
+    <!-- ── CREAM HEADER ─────────────────────────────────────────── -->
+    <header class="case-header">
+      <Nav theme="light" />
+
+      <section class="case-hero">
+        <div class="container">
+
+          <h1 class="case-title">{d.title}</h1>
+
+          <div class="case-grid">
+            <!-- Left: meta sections -->
+            <div class="case-meta">
+              {metaSections.map(section => (
+                <div class="case-section">
+                  <h3>{section.label}</h3>
+                  {Array.isArray(section.body)
+                    ? section.body.map((p: string) => <p>{p}</p>)
+                    : <p>{section.body}</p>
+                  }
+                </div>
+              ))}
+            </div>
+
+            <!-- Right: hero image -->
+            <div class="case-mockups">
+              {d.heroImage && (
+                <div>
+                  <img
+                    src={d.heroImage}
+                    alt={`${d.title} screens`}
+                    style="display:block;width:100%;height:auto;"
+                  />
+                  {d.award && (
+                    <div style="margin-top:16px;display:flex;justify-content:center;">
+                      <img
+                        src="/images/red-dot.png"
+                        alt="Red Dot Design Award"
+                        style="display:block;width:180px;height:auto;"
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </header>
+
+    <!-- ── DIVIDER — cream → olive ──────────────────────────────── -->
+    <Divider from="cream" to="olive" direction="left-up" />
+
+    <!-- ── OLIVE BODY ───────────────────────────────────────────── -->
+    <section class="section--olive case-olive">
+      <div class="container">
+        <div class="case-olive-inner">
+
+          <!-- Final production -->
+          {d.finalProductionImages && d.finalProductionImages.length > 0 && (
+            <div class="delivery-section">
+              <h2 class="olive-heading">Final production</h2>
+              <div class="delivery-images">
+                {d.finalProductionImages.map((src: string, i: number) => (
+                  <img
+                    src={src}
+                    alt={`${d.title} — final production ${i + 1}`}
+                    style="display:block;width:100%;height:auto;"
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- The process -->
+          <div class="process-section">
+            <h2 class="olive-heading process-heading">The process</h2>
+
+            {d.processImage && (
+              <div style="width:100%;margin-bottom:0;">
+                <img
+                  src={d.processImage}
+                  alt={`${d.title} — process diagram`}
+                  style="display:block;width:100%;height:auto;"
+                />
+              </div>
+            )}
+          </div>
+
+          <!-- Markdown body: Discovery / Define / Results -->
+          <div class="content-section prose">
+            <Content />
+          </div>
+
+        </div>
       </div>
+    </section>
 
-      {d.heroImage && (
-        <div class="cs-header__image">
-          <img src={d.heroImage} alt={`${d.title} hero image`} />
-        </div>
-      )}
+    <!-- ── DIVIDER — olive → cream-light ────────────────────────── -->
+    <Divider from="olive" to="creamLight" direction="left-up" />
 
-    </div>
-  </section>
+    <!-- ── FOOTER — cream variant ───────────────────────────────── -->
+    <Footer theme="cream" />
 
-  <!-- ── META ROWS (cream) ────────────────────────────────────── -->
-  <section class="cs-meta section--cream">
-    <div class="container">
-      <dl>
-        {metaRows.map(row => (
-          <MetaRow label={row.label} body={row.body} />
-        ))}
-        <!-- closing rule -->
-        <div class="cs-meta__closing-rule"><hr /></div>
-      </dl>
-    </div>
-  </section>
-
-  <!-- ── WAVE (cream → olive) ─────────────────────────────────── -->
-  <WaveDivider direction="to-olive" />
-
-  <!-- ── FINAL PRODUCTION (olive) ─────────────────────────────── -->
-  <section class="cs-final section--olive">
-    <div class="container">
-      <h2 class="cs-final__heading">Final production</h2>
-
-      {d.finalProductionImages && d.finalProductionImages.length > 0 ? (
-        <div class="cs-final__images">
-          {d.finalProductionImages.map((src: string, i: number) => (
-            <img
-              src={src}
-              alt={`${d.title} final production screenshot ${i + 1}`}
-              class="cs-final__image"
-            />
-          ))}
-        </div>
-      ) : (
-        <div class="cs-final__placeholder">
-          {/* Images will be added when available */}
-        </div>
-      )}
-    </div>
-  </section>
-
-  <!-- ── WAVE (olive → cream) ─────────────────────────────────── -->
-  <WaveDivider direction="to-cream" />
-
-  <!-- ── THE PROCESS (cream) ──────────────────────────────────── -->
-  <section class="cs-process section--cream">
-    <div class="container">
-      <h2 class="cs-process__heading">The process</h2>
-
-      {d.processImage && (
-        <div class="cs-process__diagram">
-          <img src={d.processImage} alt={`${d.title} process diagram`} />
-        </div>
-      )}
-
-      <!-- Markdown body: Discovery / Define / Results sub-sections -->
-      <div class="cs-process__content prose">
-        <Content />
-      </div>
-    </div>
-  </section>
-
-  <!-- ── FOOTER (olive) ───────────────────────────────────────── -->
-  <Footer />
-
-</BaseLayout>
+  </body>
+</html>
 
 <style>
-  /* ── Header ─────────────────────────────────────────────────── */
-  .cs-header {
-    padding-top: 48px;
-    padding-bottom: 64px;
+  /* ── Body / page bg ──────────────────────────────────────────── */
+  .case-body {
+    background-color: var(--color-cream-400);
+    color: var(--color-olive-500);
+    -webkit-font-smoothing: antialiased;
   }
 
-  .cs-header__inner {
+  /* ── Case hero (cream-500 bg) ────────────────────────────────── */
+  .case-header {
+    background-color: var(--color-cream-500);
+  }
+
+  .case-hero {
+    padding: 24px 0 96px;
+    background-color: var(--color-cream-400);
+    color: var(--color-olive-500);
+  }
+
+  /* Title — Lilita One 500, olive-300 */
+  .case-title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(32px, 4.8vw, 56px);
+    letter-spacing: -1.5px;
+    margin: 24px 0 56px;
+    color: var(--color-olive-300);
+    display: inline-block;
+  }
+
+  /* Two-column grid: meta left, image right */
+  .case-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.3fr;
     gap: 64px;
     align-items: start;
   }
 
-  .cs-header__back {
-    display: inline-block;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--color-text-secondary);
+  /* Meta sections (Role, Description, Platform…) */
+  .case-section {
     margin-bottom: 24px;
-    transition: color 0.15s ease;
   }
-  .cs-header__back:hover { color: var(--color-text-primary); }
-
-  .cs-header__title {
-    font: var(--font-heading-1);
-    letter-spacing: var(--tracking-tight);
-    color: var(--color-text-primary);
+  .case-section h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: -0.2px;
+    margin: 0 0 8px;
+    color: var(--color-olive-400);
   }
-
-  .cs-header__image {
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    background-color: var(--color-surface-primary);
-  }
-
-  .cs-header__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .case-section p,
+  .case-section li {
+    font: 400 13px/1.65 var(--font-sans);
+    color: var(--color-olive-400);
+    margin: 0 0 10px;
+    letter-spacing: 0.05px;
   }
 
-  /* ── Meta rows ───────────────────────────────────────────────── */
-  .cs-meta {
-    padding-bottom: 64px;
+  .case-mockups {
+    position: relative;
+    min-height: 420px;
   }
 
-  .cs-meta__closing-rule hr {
-    border: none;
-    border-top: 1px solid var(--color-border-subtle);
+  /* ── Olive body ──────────────────────────────────────────────── */
+  .case-olive {
+    padding: 80px 0 96px;
   }
 
-  /* ── Final production ───────────────────────────────────────── */
-  .cs-final {
-    padding-block: 80px;
+  /* Width cap matching the design (1000px within the 1280px container) */
+  .case-olive-inner {
+    width: 1000px;
+    max-width: 100%;
   }
 
-  .cs-final__heading {
-    font: var(--font-heading-2);
-    letter-spacing: var(--tracking-tight);
-    color: var(--color-text-inverse);
-    margin-bottom: 40px;
+  /* Section headings inside olive: Lilita One 800, cream-400 */
+  .olive-heading {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(28px, 3.6vw, 40px);
+    letter-spacing: -0.8px;
+    margin: 0 0 40px;
+    color: var(--color-cream-400);
+    text-align: center;
   }
 
-  .cs-final__images {
+  /* "The process" heading is left-aligned */
+  .process-heading {
+    text-align: left;
+    margin-top: 80px;
+  }
+
+  .delivery-images {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    max-width: 1100px;
+    margin-inline: auto;
   }
 
-  .cs-final__image {
-    width: 100%;
-    display: block;
-  }
-
-  .cs-final__placeholder {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background-color: rgba(232, 229, 219, 0.08);
-    border: 1px dashed rgba(232, 229, 219, 0.2);
-  }
-
-  /* ── The process ─────────────────────────────────────────────── */
-  .cs-process {
-    padding-block: 80px;
-  }
-
-  .cs-process__heading {
-    font: var(--font-heading-2);
-    font-style: italic;
-    letter-spacing: var(--tracking-tight);
-    color: var(--color-text-primary);
-    margin-bottom: 40px;
-  }
-
-  .cs-process__diagram {
-    margin-bottom: 56px;
-  }
-
-  .cs-process__diagram img {
-    width: 100%;
-  }
-
-  /* ── Prose (markdown body) ───────────────────────────────────── */
-  .prose :global(h2) {
-    font: var(--font-heading-3);
-    letter-spacing: var(--tracking-tight);
-    color: var(--color-text-primary);
-    margin-top: 56px;
-    margin-bottom: 16px;
+  /* ── Prose (markdown: Discovery / Define / Results) ──────────── */
+  .content-section {
+    margin-top: 64px;
+    width: 1000px;
+    max-width: 100%;
   }
 
   .prose :global(h3) {
-    font: var(--font-heading-4);
-    letter-spacing: var(--tracking-tight);
-    color: var(--color-text-primary);
-    margin-top: 40px;
-    margin-bottom: 12px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.2px;
+    margin: 24px 0 6px;
+    color: var(--color-cream-400);
+  }
+
+  .prose :global(h4) {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    color: var(--color-cream-400);
   }
 
   .prose :global(p) {
-    font: var(--font-body-medium);
-    color: var(--color-text-primary);
-    margin-bottom: 16px;
+    font: 400 13px/1.7 var(--font-sans);
+    color: var(--color-cream-400);
+    letter-spacing: 0.05px;
+    margin: 0 0 12px;
+    max-width: none;
   }
 
-  .prose :global(ul),
-  .prose :global(ol) {
+  .prose :global(ul) {
     padding-left: 20px;
-    margin-bottom: 16px;
+    list-style: disc;
+    margin-bottom: 12px;
   }
-
-  .prose :global(ul) { list-style: disc; }
-  .prose :global(ol) { list-style: decimal; }
-
-  .prose :global(li) {
-    font: var(--font-body-medium);
-    color: var(--color-text-primary);
+  .prose :global(ul li) {
+    color: var(--color-cream-400);
+    font: 400 13px/1.65 var(--font-sans);
     margin-bottom: 6px;
   }
 
-  /* ── Mobile ─────────────────────────────────────────────────── */
-  @media (max-width: 768px) {
-    .cs-header {
-      padding-top: 32px;
-      padding-bottom: 40px;
-    }
+  .prose :global(a) {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 
-    .cs-header__inner {
+  /* ── Responsive ──────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .case-grid {
       grid-template-columns: 1fr;
       gap: 32px;
     }
-
-    .cs-final,
-    .cs-process {
-      padding-block: 56px;
-    }
+    .case-mockups { min-height: 0; }
+    .case-olive-inner { width: 100%; }
+    .content-section { width: 100%; }
   }
 </style>

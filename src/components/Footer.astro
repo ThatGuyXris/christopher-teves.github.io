@@ -1,41 +1,46 @@
 ---
+/**
+ * Footer — cream variant (homepage) or olive variant (case studies).
+ * theme="cream" → cream-300 bg, olive text (default, homepage)
+ * theme="olive" → olive-400 bg, cream text (case study pages)
+ */
 import { site } from '../config/site';
+
+interface Props {
+  theme?: 'cream' | 'olive';
+}
+const { theme = 'cream' } = Astro.props;
 ---
 
-<footer class="footer">
-  <div class="footer__inner">
+<footer class={`footer footer--${theme}`}>
+  <div class="container footer__inner">
 
-    <div class="footer__top">
-      <!-- Name — underlined, large -->
-      <a href="/" class="footer__name">{site.name}</a>
+    <div class="footer__col footer__col--brand">
+      <span class="footer__wordmark">{site.name}</span>
+    </div>
 
-      <!-- Nav links -->
+    <div class="footer__col footer__col--nav">
       <nav aria-label="Footer navigation">
-        <ul class="footer__nav" role="list">
-          <li><a href="/#select-works">Portfolio</a></li>
+        <ul role="list">
+          <li><a href="/#works">Portfolio</a></li>
           <li><a href="/stuff">Stuff</a></li>
         </ul>
       </nav>
     </div>
 
-    <div class="footer__bottom">
-      <!-- Contact -->
+    <div class="footer__col footer__col--contact">
       <div class="footer__contact">
         <a href={`mailto:${site.email}`}>{site.email}</a>
         <span>{site.phone}</span>
         <span>{site.location}</span>
       </div>
-
-      <!-- LinkedIn -->
       <a
         href={site.linkedin}
         target="_blank"
         rel="noopener noreferrer"
         class="footer__linkedin"
         aria-label="LinkedIn profile"
-      >
-        in
-      </a>
+      >in</a>
     </div>
 
   </div>
@@ -43,116 +48,89 @@ import { site } from '../config/site';
 
 <style>
   .footer {
+    padding: 72px 0 56px;
+  }
+
+  /* Theme variants */
+  .footer--cream {
+    background-color: var(--color-cream-300);
+    color: var(--color-olive-500);
+  }
+  .footer--olive {
     background-color: var(--color-surface-inverse);
-    color: var(--color-text-inverse);
-    padding-inline: var(--page-padding-desktop);
-    padding-block: 64px 48px;
+    color: var(--color-cream-400);
   }
 
   .footer__inner {
-    width: 100%;
-    max-width: var(--content-max-width);
-    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.2fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  /* Wordmark */
+  .footer__wordmark {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: -1px;
+    display: inline-block;
+  }
+  .footer--cream .footer__wordmark { color: var(--color-olive-500); }
+  .footer--olive .footer__wordmark { color: var(--color-cream-400); }
+
+  /* Nav links */
+  .footer__col--nav ul {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 6px;
   }
-
-  /* Top row — name + nav */
-  .footer__top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 32px;
-  }
-
-  .footer__name {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 1.2;
-    color: var(--color-text-inverse);
+  .footer__col--nav a {
+    font: 400 14px/1.6 var(--font-sans);
     text-decoration: underline;
-    text-underline-offset: 4px;
+    text-underline-offset: 3px;
     transition: opacity 0.15s ease;
   }
-  .footer__name:hover { opacity: 0.7; }
+  .footer__col--nav a:hover { opacity: 0.6; }
+  .footer--cream .footer__col--nav a { color: var(--color-olive-500); }
+  .footer--olive .footer__col--nav a { color: var(--color-cream-400); }
 
-  .footer__nav {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    text-align: right;
-  }
-
-  .footer__nav a {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.58;
-    color: var(--color-text-inverse);
-    opacity: 0.6;
-    transition: opacity 0.15s ease;
-  }
-  .footer__nav a:hover { opacity: 1; }
-
-  /* Bottom row — contact + linkedin */
-  .footer__bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 16px;
-  }
-
+  /* Contact */
   .footer__contact {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
+    font: 400 14px/1.7 var(--font-sans);
   }
+  .footer--cream .footer__contact { color: var(--color-olive-500); }
+  .footer--olive .footer__contact { color: var(--color-cream-400); }
+  .footer__contact a { transition: opacity 0.15s ease; }
+  .footer__contact a:hover { opacity: 0.6; }
 
-  .footer__contact a,
-  .footer__contact span {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.58;
-    color: var(--color-text-inverse);
-    opacity: 0.6;
-  }
-  .footer__contact a:hover { opacity: 1; }
-
+  /* LinkedIn badge */
   .footer__linkedin {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 1;
-    color: var(--color-text-inverse);
-    border: 1px solid rgba(232, 229, 219, 0.3);
-    padding: 6px 9px;
-    transition: border-color 0.15s ease, opacity 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-top: 12px;
+    font: 700 14px/1 var(--font-sans);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.15s ease;
   }
-  .footer__linkedin:hover { border-color: var(--color-text-inverse); }
+  .footer__linkedin:hover { opacity: 0.6; }
+  .footer--cream .footer__linkedin { color: var(--color-olive-500); }
+  .footer--olive .footer__linkedin { color: var(--color-cream-400); }
 
   /* Mobile */
   @media (max-width: 768px) {
-    .footer {
-      padding-inline: var(--page-padding-mobile);
-      padding-block: 48px 40px;
+    .footer__inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
     }
-
-    .footer__top {
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .footer__nav {
-      text-align: left;
-    }
-
-    .footer__bottom {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 24px;
-    }
+    .footer__wordmark { font-size: 24px; }
   }
 </style>

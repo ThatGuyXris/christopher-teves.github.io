@@ -6,34 +6,50 @@ export const site = {
   name: 'Christopher Teves',
   role: 'UX/UI Designer',
   location: 'Sweden',
-  email: 'hello@christopher-teves.com',   // TODO: replace with real email
-  phone: '+46 000 000 00 00',             // TODO: replace with real phone
-  linkedin: 'https://www.linkedin.com/in/christopherteves', // TODO: confirm URL
+  email: 'teves.christopher@outlook.com',
+  phone: '+46 736 31 0941',
+  linkedin: 'https://www.linkedin.com/in/christopher-teves-the-creator-/',
 
-  // Hero section — left column bio block
+  // Hero section — stacked bio paragraphs (left column, below the name)
   heroBio: [
-    'UX/UI designer specialising in end-to-end product design — from early research to pixel-perfect delivery.',
-    'I work at the intersection of user needs and business goals, turning complex problems into clear, considered experiences.',
+    'Design has been part of my life for as long as I can remember. What started as a fascination with digital art evolved into a deeper curiosity about how thoughtful design can shape the way people experience products.',
+    'Today, I\'m a designer working end-to-end, from research and problem framing to strategy, prototyping, and scalable design systems.',
+    'I combine research insights with systems thinking and craft to create experiences that are intuitive, purposeful, and visually refined. My focus is always the same: designing solutions that are grounded in real human needs and built to scale.',
+    'I call Malmö, Sweden home, where I nerd out over music, film, and games, when I\'m not busy being a proud husband and dad.',
   ],
 
-  // Facts / Skills section — olive bg
+  // Facts / Skills section (pipe-separated in the design)
   skills: [
-    'Research & strategy',
-    'Wireframing & prototyping',
-    'Usability testing',
-    'Accessibility design',
-    'Design systems',
-    'Visual design',
+    'Figma (Design Systems, Prototyping, Auto-layout, Tokens)',
+    'UI / UX Design',
+    'Interaction Design',
+    'Production Design',
+    'Research & Methodology',
+    'End-to-end Design process',
+    'Design Systems & Component libraries',
+    'User Flows & Journey mapping',
+    'Prototyping (Low → High)',
+    'Accessibility (WCAG)',
+    'Usability Testing & Validation',
+    'Visual Design & UI Craft',
+    'Motion Design (UI animations, micro-interactions)',
+    'Cross-functional Collaboration (Product, Engineering, Business)',
+    'Agile / Scrum Collaboration',
+    'Figma AI',
+    'Adobe Creative Cloud',
+    'Jira',
   ],
 
   languages: [
-    { name: 'English', level: 'Fluent' },
-    { name: 'Swedish', level: 'Fluent' },
-    { name: 'Filipino', level: 'Native' }, // TODO: confirm languages
+    'English',
+    'Swedish',
+    'Danish',
+    'Tagalog',
+    'German',
   ],
 
-  // CTA in Facts section
-  ctaHeading: "The story doesn't end here.",
-  ctaBody: "Want to know more about my background, or just say hello?",
-  ctaLinkedInLabel: 'Connect on LinkedIn',
+  // Facts CTA
+  ctaHeading: "The story doesn't end here",
+  ctaBody: "let's continue the conversation on",
+  ctaLinkedInLabel: 'LinkedIn!',
 };

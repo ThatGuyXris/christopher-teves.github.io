@@ -15,7 +15,7 @@
   --color-olive-100: #EFEFED;
   --color-olive-200: #DDDDD7;
   --color-olive-300: #AAAB9A; /* mid olive */
-  --color-olive-400: #7A7B68; /* primary olive — main bg */
+  --color-olive-400: #7A7B68; /* primary olive — main dark bg */
   --color-olive-500: #585947;
   --color-olive-600: #323328;
 
@@ -27,11 +27,11 @@
   --color-cream-500: #D4CFBE;
   --color-cream-600: #B7B1A5;
 
-  /* Amber scale */
+  /* Amber scale — single accent, used sparingly */
   --color-amber-100: #FAF1DE;
   --color-amber-200: #F3E0B7;
   --color-amber-300: #EAC983;
-  --color-amber-400: #D4A657; /* accent — illustration card, highlights */
+  --color-amber-400: #D4A657; /* accent — highlights, focus ring */
   --color-amber-500: #AB8038;
   --color-amber-600: #79561F;
 
@@ -43,59 +43,65 @@
      -------------------------------------------------------------------------- */
 
   /* Surfaces */
-  --color-surface-page:      #E8E5DB; /* cream — main page bg (light sections) */
-  --color-surface-inverse:   #7A7B68; /* olive — dark sections */
-  --color-surface-primary:   #EFEDE8;
-  --color-surface-secondary: #F8F7F5;
+  --color-surface-page:      var(--color-cream-400); /* main page bg */
+  --color-surface-inverse:   var(--color-olive-400); /* dark sections */
+  --color-surface-primary:   var(--color-cream-300);
+  --color-surface-secondary: var(--color-cream-200);
 
   /* Text */
-  --color-text-primary:   #7A7B68; /* on cream bg */
-  --color-text-secondary: #AAAB9A;
-  --color-text-tertiary:  #DDDDD7;
-  --color-text-inverse:   #E8E5DB; /* on olive bg */
+  --color-text-primary:   var(--color-olive-400); /* on cream bg */
+  --color-text-secondary: var(--color-olive-300);
+  --color-text-tertiary:  var(--color-olive-200);
+  --color-text-inverse:   var(--color-cream-400); /* on olive bg */
 
   /* Borders */
-  --color-border-subtle:  #D4CFBE;
-  --color-border-default: #AAAB9A;
-  --color-border-strong:  #7A7B68;
-  --color-border-focus:   #D4A657; /* amber focus ring */
+  --color-border-subtle:  var(--color-cream-500);
+  --color-border-default: var(--color-olive-300);
+  --color-border-strong:  var(--color-olive-400);
+  --color-border-focus:   var(--color-amber-400);
 
   /* Actions */
-  --color-action-primary:        #7A7B68;
-  --color-action-primary-hover:  #585947;
-  --color-action-on-primary:     #E8E5DB;
-  --color-action-accent:         #D4A657; /* amber CTA */
+  --color-action-primary:        var(--color-olive-400);
+  --color-action-primary-hover:  var(--color-olive-500);
+  --color-action-on-primary:     var(--color-cream-400);
+  --color-action-accent:         var(--color-amber-400);
 
 
   /* --------------------------------------------------------------------------
      Typography
      Three fonts, each with a fixed role — never mix them up.
-     Syne ExtraBold 800   → hero name only
-     DM Serif Display     → case study titles and section headings
-     Inter                → everything else (nav, body, labels, footer)
+
+     Lilita One  → hero name (display) + section headings + wordmark
+     Space Grotesk 400/500/600/700 → headings, italic labels ("Select works", "Facts")
+     Inter 400/500/700 → all UI, body copy, labels, footer
      -------------------------------------------------------------------------- */
 
-  /* Display — Syne ExtraBold 800 */
-  --font-display-large:  800 96px/0.96 'Syne', sans-serif;
-  --font-display-medium: 800 72px/0.96 'Syne', sans-serif;
+  /* Font families */
+  --font-display: 'Lilita One', 'Space Grotesk', sans-serif;
+  --font-serif:   'Space Grotesk', sans-serif;  /* editorial headings + italic labels */
+  --font-sans:    'Inter', sans-serif;
 
-  /* Headings — DM Serif Display */
-  --font-heading-1: 400 40px/1.1  'DM Serif Display', serif; /* case study title */
-  --font-heading-2: 400 32px/1.1  'DM Serif Display', serif; /* Final production, The process */
-  --font-heading-3: 400 24px/1.2  'DM Serif Display', serif; /* Discovery, Define, Results */
-  --font-heading-4: 400 20px/1.2  'DM Serif Display', serif; /* smaller sub-headings */
+  /* Display — Lilita One, used for hero name + section headings */
+  --font-display-large:  400 clamp(64px, 12vw, 184px)/0.92 var(--font-display);
+  --font-display-medium: 400 72px/0.96 var(--font-display);
+
+  /* Headings — Space Grotesk */
+  --font-heading-1: 400 40px/1.1  var(--font-serif);
+  --font-heading-2: 400 32px/1.1  var(--font-serif);
+  --font-heading-3: 400 24px/1.2  var(--font-serif);
+  --font-heading-4: 400 20px/1.2  var(--font-serif);
 
   /* Body / UI — Inter */
-  --font-body-large:   400 16px/1.625 'Inter', sans-serif;
-  --font-body-medium:  400 14px/1.643 'Inter', sans-serif;
-  --font-body-small:   400 13px/1.615 'Inter', sans-serif;
-  --font-label-medium: 500 13px/1.538 'Inter', sans-serif; /* nav, meta */
-  --font-label-small:  500 11px/1.454 'Inter', sans-serif; /* uppercase micro labels */
-  --font-caption:      400 12px/1.583 'Inter', sans-serif; /* footer, small text */
+  --font-body-large:   400 16px/1.625 var(--font-sans);
+  --font-body-medium:  400 14px/1.643 var(--font-sans);
+  --font-body-small:   400 13px/1.615 var(--font-sans);
+  --font-label-medium: 500 13px/1.538 var(--font-sans); /* nav, meta */
+  --font-label-small:  500 11px/1.454 var(--font-sans); /* uppercase micro labels */
+  --font-caption:      400 12px/1.583 var(--font-sans);
 
   /* Letter spacing */
-  --tracking-display: -3px;   /* Syne hero */
-  --tracking-tight:   -1.5px; /* DM Serif headings */
+  --tracking-display: -2px;   /* Lilita One hero */
+  --tracking-tight:   -1.5px; /* Space Grotesk headings */
   --tracking-normal:  -0.1px; /* Inter body */
   --tracking-wide:    0.8px;  /* uppercase labels */
 
@@ -104,10 +110,10 @@
      Spacing & Layout
      -------------------------------------------------------------------------- */
 
-  --page-padding-desktop: 80px;   /* horizontal padding on desktop */
-  --page-padding-mobile:  24px;   /* horizontal padding on mobile */
-  --content-max-width:    1280px; /* 1440 design width − 2 × 80px padding */
-  --nav-height:           56px;
-  --section-gap:          96px;   /* vertical space between major sections */
-  --border-radius:        0px;    /* sharp corners everywhere */
+  --page-padding-desktop: 80px;
+  --page-padding-mobile:  24px;
+  --content-max-width:    1280px;
+  --nav-height:           64px;
+  --section-gap:          96px;
+  --border-radius:        0px;  /* sharp corners everywhere */
 }
