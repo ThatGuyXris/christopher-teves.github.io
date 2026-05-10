@@ -83,14 +83,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               {d.heroImage && (
                 <div>
                   <img
-                    src={d.heroImage}
+                    src={`${import.meta.env.BASE_URL}${d.heroImage.replace(/^\//, '')}`}
                     alt={`${d.title} screens`}
                     style="display:block;width:100%;height:auto;"
                   />
                   {d.award && (
                     <div style="margin-top:16px;display:flex;justify-content:center;">
                       <img
-                        src="/images/red-dot.png"
+                        src={`${import.meta.env.BASE_URL}images/red-dot.png`}
                         alt="Red Dot Design Award"
                         style="display:block;width:180px;height:auto;"
                       />
@@ -120,7 +120,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               <div class="delivery-images">
                 {d.finalProductionImages.map((src: string, i: number) => (
                   <img
-                    src={src}
+                    src={`${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`}
                     alt={`${d.title} — final production ${i + 1}`}
                     style="display:block;width:100%;height:auto;"
                   />
@@ -136,7 +136,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             {d.processImage && (
               <div style="width:100%;margin-bottom:0;">
                 <img
-                  src={d.processImage}
+                  src={`${import.meta.env.BASE_URL}${d.processImage.replace(/^\//, '')}`}
                   alt={`${d.title} — process diagram`}
                   style="display:block;width:100%;height:auto;"
                 />
