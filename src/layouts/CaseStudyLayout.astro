@@ -145,6 +145,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             )}
           </div>
 
+          <!-- Competitor image — shown before Discovery if present -->
+          {d.competitorImage && (
+            <div class="competitor-image">
+              <img
+                src={`${import.meta.env.BASE_URL}${d.competitorImage}`}
+                alt={`${d.title} — competitor analysis`}
+                style="display:block;width:100%;height:auto;"
+              />
+            </div>
+          )}
+
           <!-- Markdown body: Discovery / Define / Results -->
           <div class="content-section prose">
             <Content />
@@ -271,6 +282,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     gap: 24px;
     max-width: 1100px;
     margin-inline: auto;
+  }
+
+  /* ── Competitor image ────────────────────────────────────────── */
+  .competitor-image {
+    width: 1000px;
+    max-width: 100%;
+    margin: 64px auto 0;
   }
 
   /* ── Prose (markdown: Discovery / Define / Results) ──────────── */

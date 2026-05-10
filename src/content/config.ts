@@ -19,6 +19,8 @@ const projects = defineCollection({
     finalProductionImages: z.array(z.string()).optional(),
     // Process diagram shown at the top of "The process" section
     processImage: z.string().optional(),
+    // Image shown before the Discovery section in the prose
+    competitorImage: z.string().optional(),
     // Lower number = appears first in Select Works list
     order: z.number(),
   }),

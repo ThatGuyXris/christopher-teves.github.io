@@ -13,6 +13,7 @@ finalProductionImages:
   - /images/verisure-automation-final-01.png
   - /images/verisure-automation-final-02.png
 processImage: /images/verisure-automation-process.png
+competitorImage: /images/verisure-automation-competitor.jpg
 order: 1
 ---
 
