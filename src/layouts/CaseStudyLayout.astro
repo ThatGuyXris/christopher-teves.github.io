@@ -330,9 +330,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   /* Side-by-side delivery layout */
   .delivery-sidebyside {
     display: grid;
-    grid-template-columns: 1fr 3.5fr;
-    gap: 64px;
-    align-items: start;
+    grid-template-columns: 45fr 55fr;
+    gap: 56px;
+    align-items: center;
   }
   .delivery-text .olive-heading {
     margin-bottom: 24px;
@@ -345,8 +345,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     color: var(--color-cream-400);
     margin-bottom: 16px;
   }
+  .delivery-p:last-child {
+    margin-bottom: 0;
+  }
+  .delivery-image-col {
+    display: flex;
+    align-items: center;
+  }
   .delivery-image-col img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
     border-radius: 4px;
+    margin: 0;
   }
 
   @media (max-width: 900px) {
