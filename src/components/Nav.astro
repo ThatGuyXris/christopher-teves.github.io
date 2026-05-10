@@ -32,8 +32,14 @@ const { theme = 'dark' } = Astro.props;
     transition: background-color 0.25s ease, backdrop-filter 0.25s ease;
   }
 
-  .nav.is-scrolled {
+  .nav--dark.is-scrolled {
     background-color: rgba(42, 44, 32, 0.88); /* olive with opacity */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .nav--light.is-scrolled {
+    background-color: rgba(220, 215, 200, 0.92); /* cream-300 with opacity */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
