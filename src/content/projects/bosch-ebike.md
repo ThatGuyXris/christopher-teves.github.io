@@ -30,6 +30,8 @@ The goal of the project was to design a feature that would enrich the idle time 
 
 As a first step, we conducted a light competitive analysis to understand how similar apps keep users engaged during waiting or idle states. Alongside this, we explored the existing eBike Flow app to identify usability gaps and areas with low interaction. To gauge broader user sentiment, we reviewed customer feedback gathered by the client team, which highlighted recurring issues around users feeling disconnected or disengaged during non-riding periods. These insights helped us define key problem areas and laid the foundation for designing a more engaging and awareness in-app experience based on connecting to the eBike.
 
+![Bosch eBike wireframes](/christopher-teves.github.io/images/Bosch-wireframe.png)
+
 ### User journey & concept design
 
 By mapping the user journey, we identified key moments in the app where engagement naturally dropped. The main challenge areas were onboarding, updating, and commissioning the app. During these moments, the app provided little to no interaction, which often led to users becoming disengaged or forgetting about the app altogether. Through brainstorming sessions and collaborative workshops, exploring multiple directions, we began conceptualising ideas. After receiving initial feedback from the client, we developed three concepts ranging from simple and conservative to more innovative and experimental approaches. This process helped narrow the direction and align on what felt right for the product and its users.

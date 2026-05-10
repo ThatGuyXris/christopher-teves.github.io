@@ -427,6 +427,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     max-width: none;
   }
 
+  .prose :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 24px 0;
+    border-radius: 4px;
+  }
+
   .prose :global(ul) {
     padding-left: 20px;
     list-style: disc;
