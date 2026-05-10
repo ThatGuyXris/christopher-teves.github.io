@@ -23,11 +23,19 @@ const { theme = 'dark' } = Astro.props;
 <style>
   .nav {
     height: var(--nav-height);
-    background: transparent;
     display: flex;
     align-items: center;
-    position: relative;
-    z-index: 5;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: transparent;
+    transition: background-color 0.25s ease, backdrop-filter 0.25s ease;
+  }
+
+  .nav.is-scrolled {
+    background-color: rgba(42, 44, 32, 0.88); /* olive with opacity */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .nav__inner {
@@ -84,3 +92,14 @@ const { theme = 'dark' } = Astro.props;
     .nav__wordmark { font-size: 14px; }
   }
 </style>
+
+<script>
+  const nav = document.querySelector('.nav') as HTMLElement | null;
+  if (nav) {
+    const onScroll = () => {
+      nav.classList.toggle('is-scrolled', window.scrollY > 16);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>
