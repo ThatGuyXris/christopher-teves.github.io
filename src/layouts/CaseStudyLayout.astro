@@ -71,7 +71,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 <div class="case-section">
                   <h3>{section.label}</h3>
                   {Array.isArray(section.body)
-                    ? section.body.map((p: string) => <p>{p}</p>)
+                    ? section.body.map((p: string) => (
+                        <p>
+                          {section.label === 'Awards' && d.awardUrl
+                            ? <a href={d.awardUrl} target="_blank" rel="noopener noreferrer" style="text-decoration:underline;text-underline-offset:3px;">{p}</a>
+                            : p
+                          }
+                        </p>
+                      ))
                     : <p>{section.body}</p>
                   }
                 </div>
