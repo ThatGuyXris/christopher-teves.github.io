@@ -238,12 +238,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   /* ── Olive body ──────────────────────────────────────────────── */
   .case-olive {
     padding: 80px 0 96px;
+    text-align: center;
   }
 
   /* Width cap matching the design (1000px within the 1280px container) */
   .case-olive-inner {
     width: 1000px;
     max-width: 100%;
+    margin-inline: auto;
   }
 
   /* Section headings inside olive: Lilita One 800, cream-400 */
@@ -257,9 +259,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     text-align: center;
   }
 
-  /* "The process" heading is left-aligned */
+  /* "The process" heading — also centered */
   .process-heading {
-    text-align: left;
+    text-align: center;
     margin-top: 80px;
   }
 
@@ -285,6 +287,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     letter-spacing: -0.2px;
     margin: 24px 0 6px;
     color: var(--color-cream-400);
+    text-align: center;
   }
 
   .prose :global(h4) {
@@ -308,8 +311,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
 
   .prose :global(ul) {
-    padding-left: 20px;
-    list-style: disc;
+    list-style: none;
+    padding-left: 0;
     margin-bottom: 12px;
   }
   .prose :global(ul li) {
