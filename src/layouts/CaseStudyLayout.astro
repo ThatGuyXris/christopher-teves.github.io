@@ -53,9 +53,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   <body class="case-body">
 
+    <!-- ── STICKY NAV — outside header so sticky spans full page ── -->
+    <Nav theme="light" />
+
     <!-- ── CREAM HEADER ─────────────────────────────────────────── -->
     <header class="case-header">
-      <Nav theme="light" />
 
       <section class="case-hero">
         <div class="container">
