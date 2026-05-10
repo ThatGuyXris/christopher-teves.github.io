@@ -195,15 +195,19 @@ const projectLinks = [
     position: absolute;
     top: 55px;
     right: 0;
-    width: clamp(280px, 42%, 560px);
+    width: 480px;
     max-width: 100%;
+    aspect-ratio: 975 / 1462;
     z-index: 1;
     pointer-events: none;
+    overflow: hidden;
   }
   .hero-portrait img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: cover;
+    object-position: 50% 50%;
   }
 
   /* Display name — Lilita One, amber-200, in front */
