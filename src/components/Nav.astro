@@ -28,18 +28,25 @@ const { theme = 'dark' } = Astro.props;
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: var(--color-surface-page);
     transition: background-color 0.25s ease, backdrop-filter 0.25s ease;
   }
 
+  .nav--dark {
+    background-color: var(--color-surface-inverse); /* olive */
+  }
+
+  .nav--light {
+    background-color: var(--color-surface-page); /* cream */
+  }
+
   .nav--dark.is-scrolled {
-    background-color: rgba(42, 44, 32, 0.88); /* olive with opacity */
+    background-color: rgba(42, 44, 32, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
 
   .nav--light.is-scrolled {
-    background-color: rgba(220, 215, 200, 0.92); /* cream-300 with opacity */
+    background-color: rgba(220, 215, 200, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
