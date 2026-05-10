@@ -85,7 +85,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                   <img
                     src={`${import.meta.env.BASE_URL}${d.heroImage}`}
                     alt={`${d.title} screens`}
-                    class="hero-img-lightbox"
+                    class="lightbox-trigger"
                     style="display:block;width:100%;height:auto;cursor:zoom-in;"
                   />
                   {d.award && (
@@ -123,7 +123,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                   <img
                     src={`${import.meta.env.BASE_URL}${src}`}
                     alt={`${d.title} — final production ${i + 1}`}
-                    style="display:block;width:100%;height:auto;"
+                    class="lightbox-trigger"
+                    style="display:block;width:100%;height:auto;cursor:zoom-in;"
                   />
                 ))}
               </div>
@@ -426,12 +427,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   const lightbox    = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
   const closeBtn    = document.getElementById('lightbox-close');
-  const trigger     = document.querySelector('.hero-img-lightbox') as HTMLImageElement | null;
+  const triggers    = document.querySelectorAll<HTMLImageElement>('.lightbox-trigger');
 
-  const open = () => {
-    if (!lightbox || !lightboxImg || !trigger) return;
-    lightboxImg.src = trigger.src;
-    lightboxImg.alt = trigger.alt;
+  const open = (img: HTMLImageElement) => {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
     lightbox.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   };
@@ -441,7 +442,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     document.body.style.overflow = '';
   };
 
-  trigger?.addEventListener('click', open);
+  triggers.forEach(img => img.addEventListener('click', () => open(img)));
   closeBtn?.addEventListener('click', (e) => { e.stopPropagation(); close(); });
   lightbox?.addEventListener('click', close);
   lightboxImg?.addEventListener('click', (e) => e.stopPropagation());
