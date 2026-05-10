@@ -10,7 +10,7 @@ timeframe: 8 months
 heroImage: /images/bosch-ebike-hero.png
 finalProductionImages:
   - /images/bosch-ebike-final-01.png
-processImage: /images/bosch-ebike-process.png
+processImage: /images/Double-diamond.jpg
 finalProductionTitle: "Delivery & Impact"
 finalProductionSideBySide: true
 finalProductionText:
