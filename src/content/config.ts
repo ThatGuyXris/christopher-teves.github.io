@@ -13,6 +13,7 @@ const projects = defineCollection({
     workDone: z.string(),
     timeframe: z.string().optional(),
     award: z.string().optional(),
+    awardUrl: z.string().optional(),
     // Right-hand image in the case study header
     heroImage: z.string().optional(),
     // Images shown in the olive "Final production" section

@@ -8,6 +8,7 @@ platform: App
 workDone: My work included research & strategy, wire-framing & prototyping, usability testing, accessibility design.
 timeframe: 6 months
 award: Red Dot Awards 2023
+awardUrl: https://www.red-dot.org/project/verisure-automation-66712
 heroImage: /images/verisure-automation-hero.png
 finalProductionImages:
   - /images/verisure-automation-final-01.png
