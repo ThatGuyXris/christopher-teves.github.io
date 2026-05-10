@@ -11,12 +11,13 @@ heroImage: /images/bosch-ebike-hero.png
 finalProductionImages:
   - /images/bosch-ebike-final-01.png
 processImage: /images/bosch-ebike-process.png
+finalProductionTitle: "Delivery & Impact"
+finalProductionSideBySide: true
+finalProductionText:
+  - "One of the key outcomes of the project was the introduction of a community feature that brought riders closer together. By giving users a space to share their experiences, tips, and feedback, the app became more than just a tool — it turned into a place for connection."
+  - "This not only made the experience more engaging and personal but also opened up new opportunities for Bosch to grow features like forums, challenges, and events."
 order: 2
 ---
-
-### Delivery & Impact
-
-One of the key outcomes of the project was the introduction of a community feature that brought riders closer together. By giving users a space to share their experiences, tips, and feedback, the app became more than just a tool — it turned into a place for connection. This not only made the experience more engaging and personal but also opened up new opportunities for Bosch to grow features like forums, challenges, and events.
 
 ### The process
 

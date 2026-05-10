@@ -134,17 +134,38 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           <!-- Final production -->
           {d.finalProductionImages && d.finalProductionImages.length > 0 && (
             <div class="delivery-section">
-              <h2 class="olive-heading">Final production</h2>
-              <div class="delivery-images">
-                {d.finalProductionImages.map((src: string, i: number) => (
-                  <img
-                    src={`${import.meta.env.BASE_URL}${src}`}
-                    alt={`${d.title} — final production ${i + 1}`}
-                    class="lightbox-trigger"
-                    style="display:block;width:100%;height:auto;cursor:zoom-in;"
-                  />
-                ))}
-              </div>
+              {d.finalProductionSideBySide ? (
+                /* Side-by-side: text left, image right */
+                <div class="delivery-sidebyside">
+                  <div class="delivery-text">
+                    <h2 class="olive-heading">{d.finalProductionTitle ?? 'Final production'}</h2>
+                    {d.finalProductionText?.map((p: string) => <p class="delivery-p">{p}</p>)}
+                  </div>
+                  <div class="delivery-image-col">
+                    <img
+                      src={`${import.meta.env.BASE_URL}${d.finalProductionImages[0]}`}
+                      alt={`${d.title} — final production`}
+                      class="lightbox-trigger"
+                      style="display:block;width:100%;height:auto;cursor:zoom-in;"
+                    />
+                  </div>
+                </div>
+              ) : (
+                /* Default: stacked */
+                <>
+                  <h2 class="olive-heading">{d.finalProductionTitle ?? 'Final production'}</h2>
+                  <div class="delivery-images">
+                    {d.finalProductionImages.map((src: string, i: number) => (
+                      <img
+                        src={`${import.meta.env.BASE_URL}${src}`}
+                        alt={`${d.title} — final production ${i + 1}`}
+                        class="lightbox-trigger"
+                        style="display:block;width:100%;height:auto;cursor:zoom-in;"
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           )}
 
@@ -304,6 +325,35 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     gap: 24px;
     max-width: 1100px;
     margin-inline: auto;
+  }
+
+  /* Side-by-side delivery layout */
+  .delivery-sidebyside {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .delivery-text .olive-heading {
+    margin-bottom: 24px;
+  }
+  .delivery-p {
+    font-family: 'Abel', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-cream-400);
+    margin-bottom: 16px;
+  }
+  .delivery-image-col img {
+    border-radius: 4px;
+  }
+
+  @media (max-width: 900px) {
+    .delivery-sidebyside {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
   }
 
   /* ── Process note (BXT paragraph below process image) ───────── */

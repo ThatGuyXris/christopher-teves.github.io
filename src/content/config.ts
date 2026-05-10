@@ -24,6 +24,12 @@ const projects = defineCollection({
     competitorImage: z.string().optional(),
     // Short paragraph rendered below the process image
     processNote: z.string().optional(),
+    // Override "Final production" heading per case study
+    finalProductionTitle: z.string().optional(),
+    // Side-by-side layout: first image right, description text left
+    finalProductionSideBySide: z.boolean().optional(),
+    // Text shown in the left column when using side-by-side layout
+    finalProductionText: z.array(z.string()).optional(),
     // Lower number = appears first in Select Works list
     order: z.number(),
   }),
