@@ -6,7 +6,6 @@ import { getCollection } from 'astro:content';
 import { site } from '../config/site';
 
 const allProjects = await getCollection('projects');
-const worksBgUrl = `${import.meta.env.BASE_URL}images/works-bg.png`;
 const projects = allProjects.sort((a, b) => a.data.order - b.data.order);
 
 const projectLinks = [
@@ -75,7 +74,7 @@ const projectLinks = [
   <section class="section--cream works" id="works">
 
     <!-- Parallax background image -->
-    <div class="works-bg" style={`--works-bg-url: url('${worksBgUrl}')`} aria-hidden="true"></div>
+    <div class="works-bg" aria-hidden="true"></div>
 
     <div class="container works-inner">
       <div class="works-eyebrow">Select works</div>
@@ -257,7 +256,7 @@ const projectLinks = [
     left: 0;
     right: 0;
     bottom: -400px;
-    background-image: var(--works-bg-url);
+    background-image: url('/christopher-teves.github.io/images/works-bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
