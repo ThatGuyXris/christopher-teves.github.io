@@ -238,7 +238,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   /* ── Olive body ──────────────────────────────────────────────── */
   .case-olive {
     padding: 80px 0 96px;
-    text-align: center;
   }
 
   /* Width cap matching the design (1000px within the 1280px container) */
@@ -259,9 +258,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     text-align: center;
   }
 
-  /* "The process" heading — also centered */
+  /* "The process" heading — left-aligned like the content */
   .process-heading {
-    text-align: center;
+    text-align: left;
     margin-top: 80px;
   }
 
@@ -287,7 +286,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     letter-spacing: -0.2px;
     margin: 24px 0 6px;
     color: var(--color-cream-400);
-    text-align: center;
+    text-align: left;
   }
 
   .prose :global(h4) {
@@ -311,9 +310,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
 
   .prose :global(ul) {
-    list-style: none;
-    padding-left: 0;
+    padding-left: 20px;
+    list-style: disc;
     margin-bottom: 12px;
+    text-align: left;
   }
   .prose :global(ul li) {
     color: var(--color-cream-400);
