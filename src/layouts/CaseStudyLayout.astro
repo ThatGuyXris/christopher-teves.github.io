@@ -332,7 +332,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     display: grid;
     grid-template-columns: 45fr 55fr;
     gap: 56px;
-    align-items: center;
+    align-items: start;
   }
   .delivery-text .olive-heading {
     margin-bottom: 24px;
@@ -348,13 +348,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   .delivery-p:last-child {
     margin-bottom: 0;
   }
-  .delivery-image-col {
-    display: flex;
-    align-items: center;
-  }
   .delivery-image-col img {
     width: 100%;
-    max-width: 500px;
     height: auto;
     display: block;
     border-radius: 4px;
