@@ -2,12 +2,11 @@
 title: Verisure Innovation
 slug: verisure-innovation
 role: UX/UI Designer
-roleDetail: TODO — describe your role and key responsibilities on this project.
-description: TODO — one or two sentences describing what this project was and what it aimed to achieve.
-platform: App
-workDone: TODO — list the types of work done, e.g. Research & strategy, wire-framing & prototyping
-timeframe: TODO — e.g. 6 months
-# award: TODO — add if applicable, otherwise delete this line
+roleDetail: As a designer for the Verisure innovation team, I was part of a cross-functional team responsible for the strategic and creative direction of key innovation projects, driving them from initial concept to delivery. I collaborated with innovation strategists, managers, and engineers. Across these projects, I was responsible for setting design strategy, aligning the design vision with the broader project goals, conducting research to validate concepts early, managing the practical day-to-day design work, reviewing handoffs to ensure quality and accuracy, and mentoring other designers when working within a larger project design team.
+description: As a member of the innovation team, I contributed to several projects simultaneously, each with its own goals, challenges, and scale, but the common mission was always the same — to create a new innovative product or process that creates value for the business, customer, or both.
+platform: App / Web
+workDone: Research & strategy, prototyping, design systems, accessibility
+award: Red Dot Award 2021
 heroImage: /images/verisure-innovation-hero.png
 finalProductionImages:
   - /images/verisure-innovation-final-01.png
@@ -15,14 +14,33 @@ processImage: /images/verisure-innovation-process.png
 order: 5
 ---
 
-## Discovery
+### Cross-platform experience: App and Desktop
 
-TODO — describe the research phase: what you set out to understand, methods used, and key findings.
+The multi-platform experience was one of the most stimulating projects in the innovation team, with both new and legacy screens across a wide range of user and business needs.
 
-## Define
+The App experience was the most critical point to get right as it was the user's primary touchpoint with the product. The App was designed to be a seamless experience from first touch to final unlock.
 
-TODO — describe how you synthesised research into insights, problem statements, and design direction.
+The Desktop experience was built around this core principle: the user should never need to do anything on the Desktop that they can't or shouldn't do on the App. This principle guided every decision we made, which meant the desktop was stripped of all the complexity that naturally accumulates in admin tools, and focused exclusively on what actually helps users operate efficiently.
 
-## Results
+Both experiences — App and Desktop — were built to complement each other rather than duplicate each other. Key items that stood out:
 
-TODO — describe the outcomes: metrics, user feedback, business impact, or recognition received.
+- The App relied heavily on a natural and intuitive flow — so that users could navigate the product without friction.
+- The Desktop relied heavily on its data readability — so that users could understand and interact with the monitoring data quickly and clearly.
+
+### The process
+
+At Verisure, we consistently strive to implement a BXT (Business, Experience, and Technology) approach, ensuring a balanced and holistic way of working. This methodology allows us to align our design objectives with broader company goals, fostering collaboration between business strategy, user experience, and technological innovation. By integrating these three pillars, we create solutions that not only meet user needs but also drive business growth and maintain technical feasibility.
+
+### A smarter project development and humanistic design approach
+
+During the onboarding and innovation process, I adopted an approach that made it easier to align the wider team around design decisions. This involved presenting multiple design directions early — ranging from conservative to experimental — and facilitating structured feedback sessions. This allowed us to build consensus faster and ensured that the design direction was grounded in both user insight and business intent, rather than being driven by assumptions or personal preference.
+
+### VOIS employee onboarding design
+
+For a more focused project, we identified that onboarding was one of the most critical moments in the user journey — not just for the VOIS (Verisure Operations and Intelligence System) product itself, but for the people responsible for setting it up: facility managers, security officers, and back-office teams. By investing in a structured and human-centred onboarding experience, we aimed to reduce time-to-value, minimise support burden, and set users up for long-term success with the product.
+
+Our approach was guided by three onboarding design principles:
+
+- **Start with confidence:** Provide immediate clarity on what the system does, what's expected of the user, and how to get started.
+- **Guide through complexity:** Break down complex configuration tasks into manageable, clearly sequenced steps — with contextual help where users are most likely to need it.
+- **Build for mastery:** Design each onboarding touchpoint so users leave knowing not just what to do, but why, enabling greater independence and reducing reliance on external support.

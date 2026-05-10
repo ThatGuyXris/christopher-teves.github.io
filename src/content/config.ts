@@ -11,7 +11,7 @@ const projects = defineCollection({
     description: z.string().optional(),
     platform: z.string(),
     workDone: z.string(),
-    timeframe: z.string(),
+    timeframe: z.string().optional(),
     award: z.string().optional(),
     // Right-hand image in the case study header
     heroImage: z.string().optional(),
