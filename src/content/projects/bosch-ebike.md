@@ -11,7 +11,6 @@ heroImage: /images/bosch-ebike-hero.png
 finalProductionImages:
   - /images/bosch-ebike-final-01.png
 processImage: /images/bosch-ebike-process.png
-heroFloating: true
 finalProductionTitle: "Delivery & Impact"
 finalProductionSideBySide: true
 finalProductionText:
