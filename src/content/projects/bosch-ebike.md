@@ -15,7 +15,7 @@ processNote: "I follow the Double Diamond method in my design process. This appr
 finalProductionTitle: "Delivery & Impact"
 finalProductionSideBySide: true
 finalProductionText:
-  - "One of the key outcomes of the project was the introduction of a community feature that brought riders closer together. By giving users a space to share their experiences, tips, and feedback, the app became more than just a tool — it turned into a place for connection."
+  - "One of the key outcomes of the project was the introduction of a community feature that brought riders closer together. By giving users a space to share their experiences, tips, and feedback, the app became more than just a tool, it turned into a place for connection."
   - "This not only made the experience more engaging and personal but also opened up new opportunities for Bosch to grow features like forums, challenges, and events."
 order: 2
 ---
