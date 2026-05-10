@@ -143,6 +143,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 />
               </div>
             )}
+
+            {d.processNote && (
+              <p class="process-note">{d.processNote}</p>
+            )}
           </div>
 
           <!-- Competitor image — shown before Discovery if present -->
@@ -282,6 +286,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     gap: 24px;
     max-width: 1100px;
     margin-inline: auto;
+  }
+
+  /* ── Process note (BXT paragraph below process image) ───────── */
+  .process-note {
+    font-family: 'Abel', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-cream-400);
+    max-width: 720px;
+    margin: 32px auto 0;
+    text-align: center;
   }
 
   /* ── Competitor image ────────────────────────────────────────── */

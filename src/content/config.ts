@@ -21,6 +21,8 @@ const projects = defineCollection({
     processImage: z.string().optional(),
     // Image shown before the Discovery section in the prose
     competitorImage: z.string().optional(),
+    // Short paragraph rendered below the process image
+    processNote: z.string().optional(),
     // Lower number = appears first in Select Works list
     order: z.number(),
   }),

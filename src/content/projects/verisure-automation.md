@@ -14,10 +14,9 @@ finalProductionImages:
   - /images/verisure-automation-final-02.png
 processImage: /images/verisure-automation-process.png
 competitorImage: /images/verisure-automation-competitor.jpg
+processNote: "At Verisure, we consistently strive to implement a BXT (Business, Experience, and Technology) approach, ensuring a balanced and holistic way of working. This methodology allows us to align our design objectives with broader company goals, fostering collaboration between business strategy, user experience, and technological innovation. By integrating these three pillars, we create solutions that not only meet user needs but also drive business growth and maintain technical feasibility."
 order: 1
 ---
-
-At Verisure, we consistently strive to implement a BXT (Business, Experience, and Technology) approach, ensuring a balanced and holistic way of working. This methodology allows us to align our design objectives with broader company goals, fostering collaboration between business strategy, user experience, and technological innovation. By integrating these three pillars, we create solutions that not only meet user needs but also drive business growth and maintain technical feasibility.
 
 ### Discovery
 
