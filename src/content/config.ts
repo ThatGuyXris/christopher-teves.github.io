@@ -24,6 +24,8 @@ const projects = defineCollection({
     competitorImage: z.string().optional(),
     // Short paragraph rendered below the process image
     processNote: z.string().optional(),
+    // Move hero image into the olive section, floating right (~500px, no border)
+    heroFloating: z.boolean().optional(),
     // Override "Final production" heading per case study
     finalProductionTitle: z.string().optional(),
     // Side-by-side layout: first image right, description text left

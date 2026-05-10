@@ -85,9 +85,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               ))}
             </div>
 
-            <!-- Right: hero image -->
+            <!-- Right: hero image (hidden when heroFloating is true) -->
             <div class="case-mockups">
-              {d.heroImage && (
+              {d.heroImage && !d.heroFloating && (
                 <div>
                   <img
                     src={`${import.meta.env.BASE_URL}${d.heroImage}`}
@@ -130,6 +130,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <section class="section--olive case-olive">
       <div class="container">
         <div class="case-olive-inner">
+
+          <!-- Floating hero image (Bosch-style: right-aligned, no border) -->
+          {d.heroFloating && d.heroImage && (
+            <div class="hero-float-wrap">
+              <img
+                src={`${import.meta.env.BASE_URL}${d.heroImage}`}
+                alt={`${d.title} screens`}
+                class="lightbox-trigger hero-float-img"
+              />
+            </div>
+          )}
 
           <!-- Final production -->
           {d.finalProductionImages && d.finalProductionImages.length > 0 && (
@@ -325,6 +336,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     gap: 24px;
     max-width: 1100px;
     margin-inline: auto;
+  }
+
+  /* Floating hero image in olive section */
+  .hero-float-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 56px;
+  }
+  .hero-float-img {
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    cursor: zoom-in;
   }
 
   /* Side-by-side delivery layout */
