@@ -3,8 +3,9 @@
  * Divider — straight diagonal SVG transition between sections.
  * Replaces the wave SVG. Matches the design prototype exactly.
  *
- * from / to: 'olive' | 'cream' | 'creamLight'
+ * from / to: 'olive' | 'olive500' | 'cream' | 'creamLight'
  *   olive      → var(--color-olive-400)
+ *   olive500   → var(--color-olive-500)
  *   cream      → var(--color-cream-400)
  *   creamLight → var(--color-cream-300)  (used before the footer)
  *
@@ -17,8 +18,8 @@
  * height: SVG height in px (default 80)
  */
 interface Props {
-  from?: 'olive' | 'cream' | 'creamLight';
-  to?: 'olive' | 'cream' | 'creamLight';
+  from?: 'olive' | 'olive500' | 'cream' | 'creamLight';
+  to?: 'olive' | 'olive500' | 'cream' | 'creamLight';
   direction?: 'left-up' | 'right-up';
   height?: number;
 }
@@ -32,6 +33,7 @@ const {
 
 const colorMap: Record<string, string> = {
   olive:      'var(--color-olive-400)',
+  olive500:   'var(--color-olive-500)',
   cream:      'var(--color-cream-400)',
   creamLight: 'var(--color-cream-300)',
 };

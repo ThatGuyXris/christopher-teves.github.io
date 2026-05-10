@@ -107,7 +107,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </header>
 
     <!-- ── DIVIDER — cream → olive ──────────────────────────────── -->
-    <Divider from="cream" to="olive" direction="left-up" />
+    <Divider from="cream" to="olive500" direction="left-up" />
 
     <!-- ── OLIVE BODY ───────────────────────────────────────────── -->
     <section class="section--olive case-olive">
@@ -155,7 +155,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </section>
 
     <!-- ── DIVIDER — olive → cream-light ────────────────────────── -->
-    <Divider from="olive" to="creamLight" direction="left-up" />
+    <Divider from="olive500" to="creamLight" direction="left-up" />
 
     <!-- ── FOOTER — cream variant ───────────────────────────────── -->
     <Footer theme="cream" />
@@ -238,6 +238,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   /* ── Olive body ──────────────────────────────────────────────── */
   .case-olive {
     padding: 80px 0 96px;
+    background-color: var(--color-olive-500);
   }
 
   /* Width cap matching the design (1000px within the 1280px container) */
