@@ -32,16 +32,14 @@ order: 5
 
 At Verisure, we consistently strive to implement a BXT (Business, Experience, and Technology) approach, ensuring a balanced and holistic way of working. This methodology allows us to align our design objectives with broader company goals, fostering collaboration between business strategy, user experience, and technological innovation. By integrating these three pillars, we create solutions that not only meet user needs but also drive business growth and maintain technical feasibility.
 
-### A smarter project development and humanistic design approach
+### Comprehensive project involvement and holistic design approach
 
-During the onboarding and innovation process, I adopted an approach that made it easier to align the wider team around design decisions. This involved presenting multiple design directions early — ranging from conservative to experimental — and facilitating structured feedback sessions. This allowed us to build consensus faster and ensured that the design direction was grounded in both user insight and business intent, rather than being driven by assumptions or personal preference.
+Currently, there are two versions of the app, developed separately due to two major regions creating their own distinct applications. Our primary goal was to align these designs, despite the previous divergence into two separate apps. This presented several challenges, as each app had its own unique design. However, with a clear vision in mind, we worked diligently to unify both designs, aligning them with our design system. The goal was to create a single, consistent design that felt cohesive across both regions.
+
+Throughout this process, I frequently collaborated with researchers, service designers, developers, and various stakeholders across different design projects. This collaboration made defining the project scope and objectives much smoother, with clear communication being essential to our success. My role typically involved determining the design flow, selecting components, and creating prototypes. Once these elements were solidified, I facilitated the handoff to the development team, ensuring a seamless transition from design to implementation.
 
 ### VOIS employee onboarding design
 
-For a more focused project, we identified that onboarding was one of the most critical moments in the user journey — not just for the VOIS (Verisure Operations and Intelligence System) product itself, but for the people responsible for setting it up: facility managers, security officers, and back-office teams. By investing in a structured and human-centred onboarding experience, we aimed to reduce time-to-value, minimise support burden, and set users up for long-term success with the product.
+One of the key projects I'm currently leading is the management and ongoing maintenance of our design system, VDDS (Verisure Digital Design System). As VDDS is still in its early stages, it requires continuous updates and refinements, which presents a significant challenge, especially without a dedicated team solely responsible for it. Together with a colleague, we are tasked with keeping the system up to date. We use tools like Jira to efficiently document, track, and manage new components and improvements contributed by other designers. Furthermore, maintaining the design system involves close collaboration with developers to ensure the design elements align with technical specifications and are feasible for implementation.
 
-Our approach was guided by three onboarding design principles:
-
-- **Start with confidence:** Provide immediate clarity on what the system does, what's expected of the user, and how to get started.
-- **Guide through complexity:** Break down complex configuration tasks into manageable, clearly sequenced steps — with contextual help where users are most likely to need it.
-- **Build for mastery:** Design each onboarding touchpoint so users leave knowing not just what to do, but why, enabling greater independence and reducing reliance on external support.
+In addition, I spearheaded the development of an employee onboarding design guide, tailored for new designers and relevant stakeholders. Created from the ground up, this guide offers a detailed overview of our design processes, tools, and resources. By centralizing all essential information, the guide helps new designers and stakeholders quickly understand our workflows and easily access the necessary resources, saving them time and preventing repetitive queries
