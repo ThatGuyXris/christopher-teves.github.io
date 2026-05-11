@@ -28,7 +28,7 @@ const d = entry.data;
 // Meta rows to display — omit undefined fields
 const metaSections: { label: string; body: string | string[] }[] = [
   ...(d.roleDetail ? [{ label: 'Role and responsibility', body: [d.roleDetail] }] : [{ label: 'Role', body: [d.role] }]),
-  ...(d.description ? [{ label: 'Description', body: [d.description] }] : []),
+  ...(d.description ? [{ label: d.descriptionLabel ?? 'Description', body: [d.description] }] : []),
   ...(d.platform ? [{ label: 'Platform', body: [d.platform] }] : []),
   ...(d.workDone ? [{ label: 'Work done', body: [d.workDone] }] : []),
   ...(d.timeframe ? [{ label: 'Timeframe', body: [d.timeframe] }] : []),

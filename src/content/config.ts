@@ -9,8 +9,10 @@ const projects = defineCollection({
     roleDetail: z.string().optional(),
     // Project overview paragraph shown in MetaRow
     description: z.string().optional(),
-    platform: z.string(),
-    workDone: z.string(),
+    // Override the "Description" label in the meta row
+    descriptionLabel: z.string().optional(),
+    platform: z.string().optional(),
+    workDone: z.string().optional(),
     timeframe: z.string().optional(),
     award: z.string().optional(),
     awardUrl: z.string().optional(),
