@@ -6,7 +6,7 @@ roleDetail: |
   At Draftit, I took on a broad product design role spanning research, interaction design, prototyping and visual direction. My scope went beyond delivering screens, I worked with stakeholders and developers to define which problems were worth solving, not just how to solve them.
 
   The platform served municipalities managing legally sensitive case workflows. That context meant every design decision had to balance usability improvement against regulatory integrity and real technical constraints. I acted as the bridge between user needs, business goals and engineering feasibility.
-The problem: |
+description: |
   The brief was to modernise an incident reporting system running on paper.
   
   The real problem, uncovered in early workshops, was different.
