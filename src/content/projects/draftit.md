@@ -15,7 +15,7 @@ description: |
 
   The objective became: build a dashboard where the answer to "what do I need to do right now?" is visible within three seconds of opening the page, without clicking anything.
 descriptionLabel: "The problem"
-heroImage: /images/draftit-hero.png
+heroImage: /images/draftit.png
 finalProductionImages:
   - /images/draftit-final-01.png
 processImage: /images/draftit-process.png
