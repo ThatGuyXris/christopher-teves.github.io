@@ -32,6 +32,8 @@ order: 5
 
 At Verisure, we consistently strive to implement a BXT (Business, Experience, and Technology) approach, ensuring a balanced and holistic way of working. This methodology allows us to align our design objectives with broader company goals, fostering collaboration between business strategy, user experience, and technological innovation. By integrating these three pillars, we create solutions that not only meet user needs but also drive business growth and maintain technical feasibility.
 
+![Miscellaneous projects](/christopher-teves.github.io/images/Misc-projects-img.png)
+
 ### Comprehensive project involvement and holistic design approach
 
 Currently, there are two versions of the app, developed separately due to two major regions creating their own distinct applications. Our primary goal was to align these designs, despite the previous divergence into two separate apps. This presented several challenges, as each app had its own unique design. However, with a clear vision in mind, we worked diligently to unify both designs, aligning them with our design system. The goal was to create a single, consistent design that felt cohesive across both regions.
