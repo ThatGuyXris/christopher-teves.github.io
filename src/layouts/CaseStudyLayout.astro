@@ -110,7 +110,7 @@ function groupBody(body: string[]): BodyGroup[] {
                     <div class="case-section">
                       <h3>{section.label}</h3>
                       {Array.isArray(section.body)
-                        ? section.body.map((p: string) => (
+                        ? section.body.flatMap((p: string) => p.split(/\n\n+/)).map((p: string) => (
                             <p>
                               {section.label === 'Awards' && d.awardUrl
                                 ? <a href={d.awardUrl} target="_blank" rel="noopener noreferrer" style="text-decoration:underline;text-underline-offset:3px;">{p}</a>
