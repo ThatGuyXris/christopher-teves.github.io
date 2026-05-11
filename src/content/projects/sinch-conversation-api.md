@@ -12,6 +12,10 @@ finalProductionImages:
 processImage: /images/sinch-conversation-api-process.png
 hideMetaSections: true
 heroLeftSections:
+  - heading: "Role and responsibility"
+    body:
+      - "Conversation API was my first project at Sinch, and my first as Lead Designer. I worked across a team of roughly a dozen engineers, a product owner and a project lead, responsible for all design and UX decisions from discovery through to launch."
+      - "I joined mid-process: some groundwork existed, but design ownership was mine to take. I assessed what was usable, identified where the thinking needed to go further, and drove the project from there."
   - heading: "The problem"
     body:
       - "Sinch needed a single API endpoint that would let developers send and receive messages across any channel — SMS, WhatsApp, RCS, Viber and more — without building separate integrations for each."
