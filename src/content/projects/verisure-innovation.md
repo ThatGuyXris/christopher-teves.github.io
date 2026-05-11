@@ -26,11 +26,10 @@ finalProductionText:
   - "To validate this direction, we tested early concepts through usability sessions and prototype evaluations across both platforms. We explored assumptions around task frequency, device preference, and mental models, particularly whether users expected feature parity between mobile and desktop. Testing revealed that many users initially assumed both platforms would contain identical functionality. When features were missing or relocated, it created uncertainty about whether something was unavailable or simply in a different place."
   - "Based on these insights, we clarified the hierarchy and navigation patterns, improved cross-references between platforms, and made system status more consistent across touchpoints. We also introduced clearer contextual cues to reinforce the purpose of each platform, control on mobile, configuration and oversight on desktop."
   - "By differentiating the platforms while maintaining a consistent visual language and interaction principles, we created a cohesive cross-platform experience. This approach reduced product risk by preventing feature overload on mobile, minimizing cognitive friction, and aligning functionality with real usage contexts. Each touchpoint supports a specific user need, yet together they form a seamless ecosystem for managing and checking your home security system."
-processImage: /images/verisure-innovation-process.png
+processImage: /images/verisure-automation-process.png
+hideProcessHeading: true
 order: 5
 ---
-
-### The process
 
 At Verisure, we consistently strive to implement a BXT (Business, Experience, and Technology) approach, ensuring a balanced and holistic way of working. This methodology allows us to align our design objectives with broader company goals, fostering collaboration between business strategy, user experience, and technological innovation. By integrating these three pillars, we create solutions that not only meet user needs but also drive business growth and maintain technical feasibility.
 
