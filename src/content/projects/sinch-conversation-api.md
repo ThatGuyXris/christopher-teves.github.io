@@ -10,6 +10,18 @@ heroImage: /images/sinch-conversation-api-hero.png
 finalProductionImages:
   - /images/sinch-conversation-api-final-01.png
 processImage: /images/sinch-conversation-api-process.png
+hideMetaSections: true
+heroLeftSections:
+  - heading: "The problem"
+    body:
+      - "Sinch needed a single API endpoint that would let developers send and receive messages across any channel — SMS, WhatsApp, RCS, Viber and more — without building separate integrations for each."
+      - "The product concept was clear. The problem was the setup experience. Research from the previous team had surfaced that it took 15–35 steps, depending on the channel. Users were dropping off before completing it. The friction wasn't a comprehension problem; developers understood what they needed to do. The flow had simply never been structured around how they actually thought about the task."
+  - heading: "Constraints worth naming"
+    body:
+      - "Two things made this harder than a standard flow redesign. First, the Conversation API depended on several other Sinch products — channel apps, contact lists — each with its own UI and its own logic. Any changes I made had to work within the constraints of each. Second, the Sinch portal had an established design guide. Consistency across the platform wasn't optional, which meant some technically cleaner solutions weren't available, and the real work was finding what was both correct and possible."
+  - heading: "Press"
+    body:
+      - '<a href="https://techcrunch.com" target="_blank" rel="noopener noreferrer">TechCrunch</a> — The Conversation API launched to press coverage at release.'
 order: 4
 ---
 
