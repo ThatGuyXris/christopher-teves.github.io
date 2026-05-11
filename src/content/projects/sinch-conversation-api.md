@@ -14,7 +14,6 @@ finalProductionText:
   - 'The final experience is centered around a <strong>Conversation entity</strong> that organizes everything else. This matched how users think ("I want to set up a conversation flow") rather than how the system is implemented ("here are all the channel components").'
   - "Key outcomes visible in the UI:"
   - '<ul><li><strong>Navigation clarity:</strong> a stable left nav that separates configuration domains and reduces "where do I go next?" friction</li><li><strong>Configuration that feels guided:</strong> structured pages with grouped sections, clearer labels, and contextual feedback</li><li><strong>State visibility:</strong> dashboards and lists that show connected channels and readiness at a glance, reducing reliance on documentation</li></ul>'
-processImage: /images/sinch-conversation-api-process.png
 hideMetaSections: true
 heroLeftSections:
   - heading: "Role and responsibility"
@@ -33,16 +32,6 @@ heroLeftSections:
       - '<a href="https://techcrunch.com" target="_blank" rel="noopener noreferrer">TechCrunch — The Conversation API launched to press coverage at release.</a>'
 order: 4
 ---
-
-### The problem
-
-Sinch needed a single API endpoint that would let developers send and receive messages across any channel — SMS, WhatsApp, RCS, Viber and more — without building separate integrations for each.
-
-The product concept was clear. The problem was the setup experience. Research from the previous team had surfaced that it took 15–35 steps, depending on the channel. Users were dropping off before completing it. The friction wasn't a comprehension problem; developers understood what they needed to do. The flow had simply never been structured around how they actually thought about the task.
-
-### Constraints worth naming
-
-Two things made this harder than a standard flow redesign. First, the Conversation API depended on several other Sinch products — channel apps, contact lists — each with its own UI and its own logic. Any changes I made had to work within the constraints of each. Second, the Sinch portal had an established design guide. Consistency across the platform wasn't optional, which meant some technically cleaner solutions weren't available, and the real work was finding what was both correct and possible.
 
 ### Discovery
 
