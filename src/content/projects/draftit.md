@@ -17,7 +17,8 @@ description: |
 descriptionLabel: "The problem"
 heroImage: /images/draftit.png
 finalProductionImages:
-  - /images/draftit-final-01.png
+  - /images/Draftit%20Admin%20Dashboard.png
+  - /images/Draftit%20Incident%20report.png
 processImage: /images/draftit-process.png
 order: 6
 ---
