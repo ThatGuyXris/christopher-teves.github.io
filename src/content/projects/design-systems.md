@@ -36,7 +36,9 @@ order: 3
 
 ### Vision & Strategy
 
-Each system I've worked on was guided by a clear and learning vision. To build help design systems that work with their products, empowering teams to create consistent, accessible, and engaging experiences efficiently and at scale.
+Each system I've worked on was guided by a clear and lasting vision:
+
+> ***To build living design languages that grow with their products, empowering teams to create consistent, accessible, and engaging experiences efficiently and at scale.***
 
 Across these projects, I applied five core principles that shaped both the strategy and implementation.
 
