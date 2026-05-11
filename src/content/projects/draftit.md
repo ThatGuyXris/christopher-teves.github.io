@@ -2,8 +2,6 @@
 title: Draftit
 slug: draftit
 role: Product Designer
-roleDetail: I was a product designer at an agency focusing on multiple clients, one of which was Draftit. I was responsible for managing and designing solutions, conducting discovery sessions, defining design and product strategy, and implementing agile methodologies. I collaborated closely with stakeholders, managers and developers, while also managing the client relationship, setting and managing expectations, and negotiating timelines.
-description: The brief was to understand the existing reporting capabilities of the Draftit tool and assess how to improve it. The result was a clear outcome — to either improve the reporting system or replace it entirely.
 platform: Web
 workDone: Product design, UX/UI design, design systems, prototyping
 heroImage: /images/draftit-hero.png
@@ -12,6 +10,14 @@ finalProductionImages:
 processImage: /images/draftit-process.png
 order: 6
 ---
+
+## Role and responsibility
+
+I was a product designer at an agency focusing on multiple clients, one of which was Draftit. I was responsible for managing and designing solutions, conducting discovery sessions, defining design and product strategy, and implementing agile methodologies. I collaborated closely with stakeholders, managers and developers, while also managing the client relationship, setting and managing expectations, and negotiating timelines.
+
+## Description
+
+The brief was to understand the existing reporting capabilities of the Draftit tool and assess how to improve it. The result was a clear outcome — to either improve the reporting system or replace it entirely.
 
 ### The problem
 

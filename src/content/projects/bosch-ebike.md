@@ -2,8 +2,6 @@
 title: Bosch eBike
 slug: bosch-ebike
 role: UX/UI Designer Consultant
-roleDetail: As the UX/UI Designer Consultant on the eBike Flow app project, I was responsible for driving the design of a new feature aimed at improving user engagement within the app. My role covered the entire design process, from early exploration and concept development to high-fidelity prototypes and developer handoff. I worked closely with the project lead and development team to align user needs with technical constraints and ensure a cohesive, high-quality user experience across the app.
-description: The eBike Flow app connects all parts of the smart system, including the drive unit, battery, display, and control unit, giving riders full control over their eBike experience. It allows riders to customise settings, access new features through updates, and keep their system running smoothly.
 platform: Smartphones
 workDone: Research, sketching, conceptualisation, testing, prototyping and design
 timeframe: 8 months
@@ -19,6 +17,14 @@ finalProductionText:
   - "This not only made the experience more engaging and personal but also opened up new opportunities for Bosch to grow features like forums, challenges, and events."
 order: 2
 ---
+
+## Role and responsibility
+
+As the UX/UI Designer Consultant on the eBike Flow app project, I was responsible for driving the design of a new feature aimed at improving user engagement within the app. My role covered the entire design process, from early exploration and concept development to high-fidelity prototypes and developer handoff. I worked closely with the project lead and development team to align user needs with technical constraints and ensure a cohesive, high-quality user experience across the app.
+
+## Description
+
+The eBike Flow app connects all parts of the smart system, including the drive unit, battery, display, and control unit, giving riders full control over their eBike experience. It allows riders to customise settings, access new features through updates, and keep their system running smoothly.
 
 ### The challenge
 
