@@ -8,9 +8,6 @@ platform: Multi-platform
 workDone: Research & strategy, component design, documentation, governance
 timeframe: Ongoing
 heroImage: /images/DS-components.png
-finalProductionImages:
-  - /images/design-systems-final-01.png
-processImage: /images/design-systems-process.png
 heroImageLarge: true
 hideMetaSections: true
 heroLeftSections:
@@ -29,23 +26,6 @@ heroLeftSections:
       - "These challenges revealed the same underlying need, to create forward-looking design systems that unify design and engineering, reduce overhead, and scale with evolving product ecosystems."
 order: 3
 ---
-
-### Overview
-
-Throughout my career, I've contributed to the lead development of several Design Systems across different organisations and product teams. Each one had its own goals, challenges, and scale, but the common mission was always the same: to create a unified design language that improves collaboration, consistency, and scalability.
-
-We set out to defining design foundations and building scalable component libraries, to establishing governance models, documentation structures, and accessibility frameworks.
-
-### Challenges & Motivation
-
-Across multiple teams and situations, similar patterns of challenges consistently emerged.
-
-- **Visual inconsistency:** Products often evolved independently, leading to fragmented design languages and inconsistent user experiences.
-- **Redundant effort:** Designers and developers repeatedly rebuilt similar components, increasing workload and risk of errors.
-- **Scalability issues:** As products grew with centralised component documentation, maintaining a cohesive design across web, mobile, and embedded interfaces became increasingly difficult.
-- **Onboarding friction:** Without centralised component documentation, new team members struggled to get up to speed efficiently.
-
-These challenges showed the same underlying need: to create forward-thinking systems that unify design and engineering to maintain design alignment and quality, with well accessibility frameworks.
 
 ### Vision & Strategy
 
