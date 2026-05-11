@@ -32,6 +32,13 @@ const projects = defineCollection({
     finalProductionSideBySide: z.boolean().optional(),
     // Text shown in the left column when using side-by-side layout
     finalProductionText: z.array(z.string()).optional(),
+    // Hide the default meta rows in the hero section left column
+    hideMetaSections: z.boolean().optional(),
+    // Custom content sections rendered in the left column instead of meta rows
+    heroLeftSections: z.array(z.object({
+      heading: z.string(),
+      body: z.array(z.string()),
+    })).optional(),
     // Lower number = appears first in Select Works list
     order: z.number(),
   }),

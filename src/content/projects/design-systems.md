@@ -11,6 +11,21 @@ heroImage: /images/design-systems-hero.png
 finalProductionImages:
   - /images/design-systems-final-01.png
 processImage: /images/design-systems-process.png
+hideMetaSections: true
+heroLeftSections:
+  - heading: "Overview"
+    body:
+      - "Throughout my career, I've contributed to and led the development of several Design Systems across different organizations and product ecosystems."
+      - "Each one had its own goals, challenges, and scale, but the common mission was always the same: to create a unified design language that improves collaboration, consistency, and speed across teams and platforms."
+      - "My role has spanned from defining design foundations and building scalable component libraries to establishing governance models, documentation structures, and accessibility frameworks."
+  - heading: "Challenges & Motivation"
+    body:
+      - "Across multiple teams and industries, similar patterns of challenges consistently emerged."
+      - "**Visual inconsistency:** Products often evolved independently, leading to fragmented design languages and uneven user experiences."
+      - "**Redundant effort:** Designers and developers repeatedly rebuilt similar components, increasing workload and introducing inconsistencies."
+      - "**Scalability issues:** As product portfolios expanded, maintaining a cohesive design identity across web, mobile, and embedded environments became increasingly difficult."
+      - "**Onboarding friction:** Without centralized documentation or a shared component library, new team members struggled to ramp up efficiently."
+      - "These challenges revealed the same underlying need, to create forward-looking design systems that unify design and engineering, reduce overhead, and scale with evolving product ecosystems."
 order: 3
 ---
 
