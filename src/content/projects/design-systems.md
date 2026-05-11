@@ -28,7 +28,7 @@ heroLeftSections:
 order: 3
 ---
 
-![Styling and colour](/christopher-teves.github.io/images/Styling color.png)
+![Styling and colour](/christopher-teves.github.io/images/Styling%20color.png)
 
 ![Icons](/christopher-teves.github.io/images/Icons.png)
 
