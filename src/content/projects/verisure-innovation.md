@@ -10,9 +10,10 @@ description: |
   At Verisure, we continuously work on numerous projects aimed at enhancing our digital products and services. My primary focus is improving the user experience across both our mobile app and website user portal, ensuring a seamless and intuitive interaction for our customers. This involves refining existing features, optimizing user flows, and introducing new design solutions that align with business goals and user needs.
   
   In addition to product design, I play a key role in maintaining and evolving our design system, ensuring consistency across all platforms. This includes refining guidelines, patterns, and components to create a more scalable and cohesive design language. By establishing clear standards, I help both internal teams and external stakeholders align with our brand identity and user experience principles. My work bridges the gap between design, development, and business strategy, fostering a more unified and efficient design process across the company.
-platform: App / Web
-workDone: Research & strategy, prototyping, design systems, accessibility
-award: Red Dot Award 2021
+platform: Smartphones, Web
+workDone: My work included conceptualisation, testing, prototyping and design.
+award: Red Dot Awards 2023
+awardUrl: https://www.red-dot.org/project/verisure-automation-66712
 heroImage: /images/verisure-innovation-hero.png
 finalProductionImages:
   - /images/verisure-innovation-final-01.png
