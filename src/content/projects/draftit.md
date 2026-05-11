@@ -63,18 +63,19 @@ There was a reasonable argument for handling overdue cases through a filter in t
 
 ### Finalisation
 
-The process phase focused on validating the direction through user feedback and testing. We continuously refined the designs based on feedback from stakeholders and users through a series of usability tests throughout the project.
+During finalisation, the work shifted to system coherence and implementation precision. Working closely with developers, we aligned component logic with technical constraints, ensured consistency across modules, and maintained accessibility across data-heavy views. The result wasn't a visual refresh, it was a structural rebuild of how the platform supports daily decision-making.
 
 ### Outcome
 
-The problems outlined in the project brief were successfully addressed. Users were now able to report on compliance content and usage within the Draftit platform. Users could now:
+The redesigned platform shifted from passive information display to actionable overview. Case officers gained immediate visibility into workload distribution, case status and prioritisation, without having to navigate, filter, or mentally reconstruct the system state from disconnected screens.
 
-- Report on compliance content
-- Create and schedule reports
-- Export and download reports
-- Group and filter reporting data
-- Identify data distribution across multiple clients
+Navigation became more structured and predictable. Key workflows required fewer steps. Visual consistency reduced cognitive load across modules. Most importantly, the platform became aligned with how administrators actually work, not with how the system was originally structured.
+
+- Improved efficiency in high-frequency administrative workflows
+- Reduced cognitive load in legally complex processes
+- Scalable UI patterns established for future development
+- Platform shifted from functional archive to active decision-support system
 
 ### Reflection
 
-This design process has taught me that asking the right questions early on — even before touching the existing tool or interface — gives you a much stronger foundation for designing the right solution. Each design decision becomes more than a visual choice; it's a strategic decision that helps teams navigate speed, trust, and design accountability.
+If I were doing it again, I'd have pushed for a structured observation session in the first two weeks, watching administrators work in the existing system before running any workshops. The workshops gave us the language of the problem. Direct observation would have given us the texture of it faster.
