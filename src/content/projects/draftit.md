@@ -14,6 +14,8 @@ The problem: |
   Administrators weren't failing to manage cases, they were failing to see them. Cases sat unresolved for months not because of bad process, but because the tool gave no overview. Nobody could tell what was open, what was stuck, or what needed attention today. The system held the data. It just never surfaced it.
 
   The objective became: build a dashboard where the answer to "what do I need to do right now?" is visible within three seconds of opening the page, without clicking anything.
+platform: Web
+workDone: Product design, UX/UI design, design systems, prototyping
 heroImage: /images/draftit-hero.png
 finalProductionImages:
   - /images/draftit-final-01.png
