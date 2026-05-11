@@ -39,6 +39,8 @@ We started with what we had: heatmaps and session recordings from the previous t
 
 The recordings were direct. Users were not confused about what the system wanted to provide. They were confused about what the system wanted them to provide. Some steps existed not because users needed them but because the underlying system architecture required them to be exposed to the user.
 
+![Discovery heatmap](/christopher-teves.github.io/images/Heatconimg1.png)
+
 ### Define
 
 We ran interviews and usability tests to validate what the data suggested. Developer users brought a specific mental model: they expected setup to follow a logical dependency chain. If step B requires something from step A, that order should be obvious and the system shouldn't have obscured it. The key question at every step: does this step need to exist, or does it exist because we haven't questioned it?
