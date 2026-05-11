@@ -6,7 +6,8 @@ roleDetail: Conversation API was my first project at Sinch, and my first as Lead
 description: Sinch needed a single API endpoint that would let developers send and receive messages across any channel — SMS, WhatsApp, RCS, Viber and more — without building separate integrations for each.
 platform: Web
 workDone: Research & discovery, UX/UI design, prototyping, usability testing, developer collaboration
-heroImage: /images/sinch-conversation-api-hero.png
+heroImage: /images/ConvfeatImage.png
+heroImageLarge: true
 finalProductionImages:
   - /images/sinch-conversation-api-final-01.png
 processImage: /images/sinch-conversation-api-process.png
