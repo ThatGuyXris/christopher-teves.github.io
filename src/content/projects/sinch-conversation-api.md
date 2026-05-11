@@ -26,7 +26,7 @@ heroLeftSections:
       - "Two things made this harder than a standard flow redesign. First, the Conversation API depended on several other Sinch products — channel apps, contact lists — each with its own UI and its own logic. Any changes I made had to work within the constraints of each. Second, the Sinch portal had an established design guide. Consistency across the platform wasn't optional, which meant some technically cleaner solutions weren't available, and the real work was finding what was both correct and possible."
   - heading: "Press"
     body:
-      - '<a href="https://techcrunch.com" target="_blank" rel="noopener noreferrer">TechCrunch</a> — The Conversation API launched to press coverage at release.'
+      - '<a href="https://techcrunch.com" target="_blank" rel="noopener noreferrer">TechCrunch — The Conversation API launched to press coverage at release.</a>'
 order: 4
 ---
 
