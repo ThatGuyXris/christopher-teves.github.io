@@ -307,6 +307,11 @@ function groupBody(body: string[]): BodyGroup[] {
     gap: 48px;
   }
 
+  /* Left column meta container */
+  .case-meta {
+    min-width: 500px;
+  }
+
   /* Meta sections (Role, Description, Platform…) */
   .case-section {
     margin-bottom: 24px;
@@ -550,6 +555,7 @@ function groupBody(body: string[]): BodyGroup[] {
       grid-template-columns: 1fr;
       gap: 32px;
     }
+    .case-meta { min-width: 0; }
     .case-mockups { min-height: 0; }
     .case-olive-inner { width: 100%; }
     .content-section { width: 100%; }
