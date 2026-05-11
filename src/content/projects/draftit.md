@@ -37,17 +37,21 @@ The most important insight was that efficiency for these users wasn't about spee
 
 ### Define
 
-An iterative approach to design, always prototyping, and always being able to answer the question "why?". We identified critical areas of improvement, and alongside the stakeholders, we defined the following key points to focus on:
+We translated insights into four design principles, then used them to evaluate every structural decision:
 
-1. Improve context switching — reduce the number of sources designers or developers need to reference.
-2. Strengthen visual hierarchy — which drives user to a natural, predictable path.
-3. Design for adoption — make the product feel like a native part of their workflow.
+1. **Support decision-making, not documentation** — every component should answer a question, not just display a number
+2. **Minimise context switching** — critical information should surface without requiring navigation
+3. **Strengthen visual hierarchy** — priority and status should be impossible to miss
+4. **Design for scalability** — patterns that support the product's future, not just its current state
 
-A decision worth explaining: the short banner. The process phase focused on testing the direction through a series of rapid iterations, alongside the stakeholders. The design team focused on:
+The most consequential structural decision was to invert the conventional case management layout. Most tools of this type open with a table, which puts the user in a list of 80 items with no context. I reversed that deliberately: context first, detail second. The table becomes the endpoint of an informed scan, not the starting point.
 
-- **Working on top** — the short banner is a key part of the design, and a key part of the user journey.
-- **Want the layout to feel strong, engaging, typographically.** Keep the user browsing, engaging, intuitively.
-- **Want specifically users unread** — remove hints that are too familiar and distracting to any other result.
+The dashboard is structured in four layers, each answering a progressively more specific question:
+
+- **Is anything on fire?** — the alert banner, visible only when something is overdue
+- **What's the overall state?** — four stat cards: Critical, Pending, In Progress, Resolved
+- **Where is the pressure?** — the chart row: school load, case volume trend, status breakdown
+- **What specifically needs action?** — the case table and quick actions panel, reached only after full context
 
 ### Finalisation
 
