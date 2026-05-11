@@ -11,6 +11,7 @@ heroImage: /images/DS-components.png
 finalProductionImages:
   - /images/design-systems-final-01.png
 processImage: /images/design-systems-process.png
+heroImageLarge: true
 hideMetaSections: true
 heroLeftSections:
   - heading: "Overview"

@@ -32,6 +32,8 @@ const projects = defineCollection({
     finalProductionSideBySide: z.boolean().optional(),
     // Text shown in the left column when using side-by-side layout
     finalProductionText: z.array(z.string()).optional(),
+    // Expand the hero image column to maximum width
+    heroImageLarge: z.boolean().optional(),
     // Hide the default meta rows in the hero section left column
     hideMetaSections: z.boolean().optional(),
     // Custom content sections rendered in the left column instead of meta rows
