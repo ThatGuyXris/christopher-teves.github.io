@@ -170,22 +170,6 @@ function groupBody(body: string[]): BodyGroup[] {
         </div>
       </section>
 
-      <!-- ── PROJECT NAV — bottom of first section ─────────────── -->
-      <nav class="project-nav project-nav--top">
-        {prevProject ? (
-          <a href={`${base}/portfolio/${prevProject.slug}`} class="project-nav__btn project-nav__btn--prev">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            <span>{prevProject.data.title}</span>
-          </a>
-        ) : <div />}
-        {nextProject ? (
-          <a href={`${base}/portfolio/${nextProject.slug}`} class="project-nav__btn project-nav__btn--next">
-            <span>{nextProject.data.title}</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </a>
-        ) : <div />}
-      </nav>
-
     </header>
 
     <!-- ── DIVIDER — cream → olive ──────────────────────────────── -->
