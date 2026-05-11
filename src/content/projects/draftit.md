@@ -2,10 +2,18 @@
 title: Draftit
 slug: draftit
 role: Product Designer
-roleDetail: I was a product designer at an agency focusing on multiple clients, one of which was Draftit. I was responsible for managing and designing solutions, conducting discovery sessions, defining design and product strategy, and implementing agile methodologies. I collaborated closely with stakeholders, managers and developers, while also managing the client relationship, setting and managing expectations, and negotiating timelines.
-description: The brief was to understand the existing reporting capabilities of the Draftit tool and assess how to improve it. The result was a clear outcome — to either improve the reporting system or replace it entirely.
-platform: Web
-workDone: Product design, UX/UI design, design systems, prototyping
+roleDetail: |
+  At Draftit, I took on a broad product design role spanning research, interaction design, prototyping and visual direction. My scope went beyond delivering screens, I worked with stakeholders and developers to define which problems were worth solving, not just how to solve them.
+
+  The platform served municipalities managing legally sensitive case workflows. That context meant every design decision had to balance usability improvement against regulatory integrity and real technical constraints. I acted as the bridge between user needs, business goals and engineering feasibility.
+The problem: |
+  The brief was to modernise an incident reporting system running on paper.
+  
+  The real problem, uncovered in early workshops, was different.
+
+  Administrators weren't failing to manage cases, they were failing to see them. Cases sat unresolved for months not because of bad process, but because the tool gave no overview. Nobody could tell what was open, what was stuck, or what needed attention today. The system held the data. It just never surfaced it.
+
+  The objective became: build a dashboard where the answer to "what do I need to do right now?" is visible within three seconds of opening the page, without clicking anything.
 heroImage: /images/draftit-hero.png
 finalProductionImages:
   - /images/draftit-final-01.png
