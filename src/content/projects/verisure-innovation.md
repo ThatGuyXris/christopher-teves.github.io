@@ -6,7 +6,10 @@ roleDetail: |
   Depending on the project scope and requirements, I have taken on both lead and supporting design roles across multiple initiatives within the company. As a Lead Designer, I have been responsible for shaping design strategies, defining user experiences, and ensuring consistency across products. In other projects, I have collaborated closely with cross-functional teams, contributing my expertise in UX/UI design, prototyping, and user research to support overall project goals.
 
   My involvement has ranged from conceptualizing new features and refining existing products to aligning designs with business objectives and technical constraints. This versatility has allowed me to adapt to different challenges, whether driving a project's design direction or working alongside other designers to bring a cohesive vision to life.
-description: As a member of the innovation team, I contributed to several projects simultaneously, each with its own goals, challenges, and scale, but the common mission was always the same, to create a new innovative product or process that creates value for the business, customer, or both.
+description: |
+  At Verisure, we continuously work on numerous projects aimed at enhancing our digital products and services. My primary focus is improving the user experience across both our mobile app and website user portal, ensuring a seamless and intuitive interaction for our customers. This involves refining existing features, optimizing user flows, and introducing new design solutions that align with business goals and user needs.
+  
+  In addition to product design, I play a key role in maintaining and evolving our design system, ensuring consistency across all platforms. This includes refining guidelines, patterns, and components to create a more scalable and cohesive design language. By establishing clear standards, I help both internal teams and external stakeholders align with our brand identity and user experience principles. My work bridges the gap between design, development, and business strategy, fostering a more unified and efficient design process across the company.
 platform: App / Web
 workDone: Research & strategy, prototyping, design systems, accessibility
 award: Red Dot Award 2021
