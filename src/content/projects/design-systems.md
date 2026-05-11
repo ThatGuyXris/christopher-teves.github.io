@@ -7,7 +7,7 @@ description: We set out to defining design foundations and building scalable com
 platform: Multi-platform
 workDone: Research & strategy, component design, documentation, governance
 timeframe: Ongoing
-heroImage: /images/design-systems-hero.png
+heroImage: /images/DS-components.png
 finalProductionImages:
   - /images/design-systems-final-01.png
 processImage: /images/design-systems-process.png
