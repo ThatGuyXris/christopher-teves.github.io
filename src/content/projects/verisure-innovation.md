@@ -40,6 +40,10 @@ Currently, there are two versions of the app, developed separately due to two ma
 
 Throughout this process, I frequently collaborated with researchers, service designers, developers, and various stakeholders across different design projects. This collaboration made defining the project scope and objectives much smoother, with clear communication being essential to our success. My role typically involved determining the design flow, selecting components, and creating prototypes. Once these elements were solidified, I facilitated the handoff to the development team, ensuring a seamless transition from design to implementation.
 
+![Wireframes](/christopher-teves.github.io/images/Wireframes.png)
+
+![WOW image](/christopher-teves.github.io/images/wow-img1.png)
+
 ### VOIS employee onboarding design
 
 One of the key projects I'm currently leading is the management and ongoing maintenance of our design system, VDDS (Verisure Digital Design System). As VDDS is still in its early stages, it requires continuous updates and refinements, which presents a significant challenge, especially without a dedicated team solely responsible for it. Together with a colleague, we are tasked with keeping the system up to date. We use tools like Jira to efficiently document, track, and manage new components and improvements contributed by other designers. Furthermore, maintaining the design system involves close collaboration with developers to ensure the design elements align with technical specifications and are feasible for implementation.
