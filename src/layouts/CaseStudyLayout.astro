@@ -206,9 +206,11 @@ function groupBody(body: string[]): BodyGroup[] {
                   </div>
                   {d.finalProductionText && d.finalProductionText.length > 0 && (
                     <div class="delivery-body">
-                      {d.finalProductionText.map((item: string) => (
-                        <Fragment set:html={item.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')} />
-                      ))}
+                      {d.finalProductionText.map((item: string) =>
+                        item.trimStart().startsWith('<ul')
+                          ? <Fragment set:html={item} />
+                          : <p set:html={item.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')} />
+                      )}
                     </div>
                   )}
                 </>
