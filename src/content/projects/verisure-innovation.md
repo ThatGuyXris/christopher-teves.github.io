@@ -15,6 +15,8 @@ workDone: My work included conceptualisation, testing, prototyping and design.
 award: Red Dot Awards 2023
 awardUrl: https://www.red-dot.org/project/verisure-automation-66712
 heroImage: /images/App%20Design%20img.png
+finalProductionImages:
+  - /images/Portfolio-App-desktiop-verisure.png
 finalProductionTitle: "Cross-platform experience: App and Desktop"
 finalProductionText:
   - "A key design challenge was aligning the mobile app and desktop experience within the same ecosystem, while acknowledging that they serve fundamentally different user needs. Rather than duplicating content across platforms, we intentionally defined distinct focus areas for each."
