@@ -172,9 +172,21 @@ function groupBody(body: string[]): BodyGroup[] {
         <div class="case-olive-inner">
 
           <!-- Final production -->
-          {d.finalProductionImages && d.finalProductionImages.length > 0 && (
+          {(d.finalProductionImages && d.finalProductionImages.length > 0 || d.finalProductionText && d.finalProductionText.length > 0) && (
             <div class="delivery-section">
-              {d.finalProductionSideBySide ? (
+              {(!d.finalProductionImages || d.finalProductionImages.length === 0) && d.finalProductionText ? (
+                /* Text-only: no image */
+                <>
+                  <h2 class="olive-heading">{d.finalProductionTitle ?? 'Final production'}</h2>
+                  <div class="delivery-body">
+                    {d.finalProductionText.map((item: string) =>
+                      item.trimStart().startsWith('<ul')
+                        ? <Fragment set:html={item} />
+                        : <p set:html={item.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')} />
+                    )}
+                  </div>
+                </>
+              ) : d.finalProductionSideBySide ? (
                 /* Side-by-side: text left, image right */
                 <div class="delivery-sidebyside">
                   <div class="delivery-text">
@@ -214,7 +226,7 @@ function groupBody(body: string[]): BodyGroup[] {
                     </div>
                   )}
                 </>
-              )}
+              ) : null}
             </div>
           )}
 

@@ -15,24 +15,16 @@ workDone: My work included conceptualisation, testing, prototyping and design.
 award: Red Dot Awards 2023
 awardUrl: https://www.red-dot.org/project/verisure-automation-66712
 heroImage: /images/App%20Design%20img.png
-finalProductionImages:
-  - /images/verisure-innovation-final-01.png
+finalProductionTitle: "Cross-platform experience: App and Desktop"
+finalProductionText:
+  - "The multi-platform experience was one of the most stimulating projects in the innovation team, with both new and legacy screens across a wide range of user and business needs."
+  - "The App experience was the most critical point to get right as it was the user's primary touchpoint with the product. The App was designed to be a seamless experience from first touch to final unlock."
+  - "The Desktop experience was built around this core principle: the user should never need to do anything on the Desktop that they can't or shouldn't do on the App. This principle guided every decision we made, which meant the desktop was stripped of all the complexity that naturally accumulates in admin tools, and focused exclusively on what actually helps users operate efficiently."
+  - "Both experiences — App and Desktop — were built to complement each other rather than duplicate each other. Key items that stood out:"
+  - '<ul><li>The App relied heavily on a natural and intuitive flow — so that users could navigate the product without friction.</li><li>The Desktop relied heavily on its data readability — so that users could understand and interact with the monitoring data quickly and clearly.</li></ul>'
 processImage: /images/verisure-innovation-process.png
 order: 5
 ---
-
-### Cross-platform experience: App and Desktop
-
-The multi-platform experience was one of the most stimulating projects in the innovation team, with both new and legacy screens across a wide range of user and business needs.
-
-The App experience was the most critical point to get right as it was the user's primary touchpoint with the product. The App was designed to be a seamless experience from first touch to final unlock.
-
-The Desktop experience was built around this core principle: the user should never need to do anything on the Desktop that they can't or shouldn't do on the App. This principle guided every decision we made, which meant the desktop was stripped of all the complexity that naturally accumulates in admin tools, and focused exclusively on what actually helps users operate efficiently.
-
-Both experiences — App and Desktop — were built to complement each other rather than duplicate each other. Key items that stood out:
-
-- The App relied heavily on a natural and intuitive flow — so that users could navigate the product without friction.
-- The Desktop relied heavily on its data readability — so that users could understand and interact with the monitoring data quickly and clearly.
 
 ### The process
 
