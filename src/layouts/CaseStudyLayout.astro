@@ -84,7 +84,7 @@ function groupBody(body: string[]): BodyGroup[] {
     <header class="case-header">
 
       <section class="case-hero">
-        <div class="container">
+        <div class={`container${d.heroImageLarge ? ' container--wide' : ''}`}>
 
           <h1 class="case-title">{d.title}</h1>
 
@@ -293,6 +293,11 @@ function groupBody(body: string[]): BodyGroup[] {
     margin: 24px 0 56px;
     color: var(--color-olive-300);
     display: inline-block;
+  }
+
+  /* Wider container for Design Systems page only */
+  .container--wide {
+    max-width: 1600px;
   }
 
   /* Two-column grid: meta left, image right */
