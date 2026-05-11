@@ -27,7 +27,7 @@ finalProductionText:
 order: 6
 ---
 
-#### Discovery
+### Discovery
 
 The process phase focused on validating the direction through user feedback and testing. Three decisions guided the exploration:
 
@@ -35,7 +35,7 @@ The process phase focused on validating the direction through user feedback and 
 2. Strengthening visual hierarchy — which drives user to a natural, predictable path
 3. Design for adoption — make the product a natural part of their workflow
 
-#### Define
+### Define
 
 An iterative approach to design, always prototyping, and always being able to answer the question "why?". We identified critical areas of improvement, and alongside the stakeholders, we defined the following key points to focus on:
 
@@ -49,11 +49,11 @@ A decision worth explaining: the short banner. The process phase focused on test
 - **Want the layout to feel strong, engaging, typographically.** Keep the user browsing, engaging, intuitively.
 - **Want specifically users unread** — remove hints that are too familiar and distracting to any other result.
 
-#### Finalisation
+### Finalisation
 
 The process phase focused on validating the direction through user feedback and testing. We continuously refined the designs based on feedback from stakeholders and users through a series of usability tests throughout the project.
 
-#### Outcome
+### Outcome
 
 The problems outlined in the project brief were successfully addressed. Users were now able to report on compliance content and usage within the Draftit platform. Users could now:
 
@@ -63,6 +63,6 @@ The problems outlined in the project brief were successfully addressed. Users we
 - Group and filter reporting data
 - Identify data distribution across multiple clients
 
-#### Reflection
+### Reflection
 
 This design process has taught me that asking the right questions early on — even before touching the existing tool or interface — gives you a much stronger foundation for designing the right solution. Each design decision becomes more than a visual choice; it's a strategic decision that helps teams navigate speed, trust, and design accountability.
