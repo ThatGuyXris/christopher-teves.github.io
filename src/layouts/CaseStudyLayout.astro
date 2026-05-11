@@ -617,7 +617,12 @@ function groupBody(body: string[]): BodyGroup[] {
   const lightbox    = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
   const closeBtn    = document.getElementById('lightbox-close');
-  const triggers    = document.querySelectorAll<HTMLImageElement>('.lightbox-trigger');
+  const triggers = document.querySelectorAll<HTMLImageElement>('.lightbox-trigger, .prose img');
+
+  // Give prose images a zoom cursor
+  document.querySelectorAll<HTMLImageElement>('.prose img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+  });
 
   const open = (img: HTMLImageElement) => {
     if (!lightbox || !lightboxImg) return;
