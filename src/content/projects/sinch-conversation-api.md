@@ -2,6 +2,8 @@
 title: Conversation API
 slug: sinch-conversation-api
 role: Lead Designer
+roleDetail: Conversation API was my first project at Sinch, and my first as Lead Designer. I worked across a team of roughly a dozen engineers, a product owner and a project lead, responsible for the full design and UX decisions from discovery through to launch. I joined mid-process — some groundwork existed, but design ownership was mine. The thinking needed to go further, and drive the project from here.
+description: Sinch needed a single API endpoint that would let developers send and receive messages across any channel — SMS, WhatsApp, RCS, Viber and more — without building separate integrations for each.
 platform: Web
 workDone: Research & discovery, UX/UI design, prototyping, usability testing, developer collaboration
 heroImage: /images/ConvfeatImage.png

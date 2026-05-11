@@ -2,6 +2,8 @@
 title: Verisure Automation
 slug: verisure-automation
 role: UX/UI Designer
+roleDetail: As a UX/UI designer on the team, I played a pivotal role in shaping the user experience for the Automation feature, contributing to both the design process and strategic decision-making. My primary responsibility was to collaborate closely with cross-functional teams to deliver user-centered solutions. This involved analyzing user feedback, competitor products, and usage data to uncover pain points and opportunities. These insights guided design decisions and helped us prioritize features that would enhance the overall user experience.
+description: The project focused on reimagining the automation features of the Verisure app to enhance user engagement, simplify security routines, and empower customers with seamless, worry-free protection. The business challenge was to increase the daily usage of the alarm system and reduce churn by addressing customers' need for effortless, intelligent automation that adds real value to their daily lives.
 platform: App
 workDone: My work included research & strategy, wire-framing & prototyping, usability testing, accessibility design.
 timeframe: 6 months
@@ -16,14 +18,6 @@ competitorImage: /images/verisure-automation-competitor.jpg
 processNote: "At Verisure, we consistently strive to implement a BXT (Business, Experience, and Technology) approach, ensuring a balanced and holistic way of working. This methodology allows us to align our design objectives with broader company goals, fostering collaboration between business strategy, user experience, and technological innovation. By integrating these three pillars, we create solutions that not only meet user needs but also drive business growth and maintain technical feasibility."
 order: 1
 ---
-
-## Role and responsibility
-
-As a UX/UI designer on the team, I played a pivotal role in shaping the user experience for the Automation feature, contributing to both the design process and strategic decision-making. My primary responsibility was to collaborate closely with cross-functional teams to deliver user-centered solutions. This involved analyzing user feedback, competitor products, and usage data to uncover pain points and opportunities. These insights guided design decisions and helped us prioritize features that would enhance the overall user experience.
-
-## Description
-
-The project focused on reimagining the automation features of the Verisure app to enhance user engagement, simplify security routines, and empower customers with seamless, worry-free protection. The business challenge was to increase the daily usage of the alarm system and reduce churn by addressing customers' need for effortless, intelligent automation that adds real value to their daily lives.
 
 ### Discovery
 

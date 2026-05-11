@@ -27,7 +27,8 @@ const d = entry.data;
 
 // Meta rows to display — omit undefined fields
 const metaSections: { label: string; body: string | string[] }[] = [
-  { label: 'Role', body: [d.role] },
+  ...(d.roleDetail ? [{ label: 'Role and responsibility', body: [d.roleDetail] }] : [{ label: 'Role', body: [d.role] }]),
+  ...(d.description ? [{ label: 'Description', body: [d.description] }] : []),
   ...(d.platform ? [{ label: 'Platform', body: [d.platform] }] : []),
   ...(d.workDone ? [{ label: 'Work done', body: [d.workDone] }] : []),
   ...(d.timeframe ? [{ label: 'Timeframe', body: [d.timeframe] }] : []),
@@ -158,11 +159,6 @@ function groupBody(body: string[]): BodyGroup[] {
             </div>
           </div>
 
-          <!-- Markdown body rendered below the hero grid -->
-          <div class="content-section prose">
-            <Content />
-          </div>
-
         </div>
       </section>
     </header>
@@ -254,6 +250,11 @@ function groupBody(body: string[]): BodyGroup[] {
             </div>
           )}
 
+          <!-- Markdown body: Discovery / Define / Results -->
+          <div class="content-section prose">
+            <Content />
+          </div>
+
         </div>
       </div>
     </section>
@@ -330,8 +331,8 @@ function groupBody(body: string[]): BodyGroup[] {
     margin-bottom: 24px;
   }
   .case-section h3 {
-    font-family: 'Abel', sans-serif;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-weight: 400;
     font-size: 20px;
     letter-spacing: -0.2px;
     margin: 0 0 8px;
@@ -531,23 +532,13 @@ function groupBody(body: string[]): BodyGroup[] {
     max-width: 100%;
   }
 
-  .prose :global(h2) {
-    font-family: 'Abel', sans-serif;
-    font-weight: 700;
-    font-size: 26px;
-    letter-spacing: -0.3px;
-    margin: 36px 0 10px;
-    color: var(--color-olive-500);
-    text-align: left;
-  }
-
   .prose :global(h3) {
-    font-family: 'Abel', sans-serif;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-weight: 500;
     font-size: 22px;
     letter-spacing: -0.2px;
     margin: 24px 0 6px;
-    color: var(--color-olive-500);
+    color: var(--color-cream-400);
     text-align: left;
   }
 
@@ -557,7 +548,7 @@ function groupBody(body: string[]): BodyGroup[] {
     font-size: 18px;
     margin-top: 16px;
     margin-bottom: 6px;
-    color: var(--color-olive-500);
+    color: var(--color-cream-400);
   }
 
   .prose :global(p) {
@@ -565,7 +556,7 @@ function groupBody(body: string[]): BodyGroup[] {
     font-weight: 400;
     font-size: 16px;
     line-height: 1.7;
-    color: var(--color-olive-600);
+    color: var(--color-cream-400);
     letter-spacing: 0.05px;
     margin: 0 0 12px;
     max-width: none;
@@ -574,7 +565,7 @@ function groupBody(body: string[]): BodyGroup[] {
   .prose :global(blockquote) {
     margin: 20px 0 24px;
     padding: 12px 20px;
-    border-left: 3px solid var(--color-olive-400);
+    border-left: 3px solid var(--color-cream-400);
     background: transparent;
   }
   .prose :global(blockquote p) {
@@ -582,7 +573,7 @@ function groupBody(body: string[]): BodyGroup[] {
     font-weight: 700;
     font-size: 16px;
     line-height: 1.65;
-    color: var(--color-olive-600);
+    color: var(--color-cream-400);
     margin: 0;
   }
 
@@ -601,7 +592,7 @@ function groupBody(body: string[]): BodyGroup[] {
     text-align: left;
   }
   .prose :global(ul li) {
-    color: var(--color-olive-600);
+    color: var(--color-cream-400);
     font-family: 'Abel', sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -612,7 +603,6 @@ function groupBody(body: string[]): BodyGroup[] {
   .prose :global(a) {
     text-decoration: underline;
     text-underline-offset: 3px;
-    color: var(--color-olive-500);
   }
 
   /* ── Responsive ──────────────────────────────────────────────── */

@@ -2,6 +2,8 @@
 title: Design Systems
 slug: design-systems
 role: Product Designer
+roleDetail: "Throughout my career, I've contributed to the lead development of several Design Systems across different organisations and product teams. Each one had its own goals, challenges, and scale, but the common mission was always the same: to create a unified design language that improves collaboration, consistency, and scalability."
+description: We set out to defining design foundations and building scalable component libraries, to establishing governance models, documentation structures, and accessibility frameworks.
 platform: Multi-platform
 workDone: Research & strategy, component design, documentation, governance
 timeframe: Ongoing
