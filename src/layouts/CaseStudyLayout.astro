@@ -36,6 +36,30 @@ const metaSections: { label: string; body: string | string[] }[] = [
 ];
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Groups heroLeftSection body items into paragraphs and bullet lists.
+// Items starting with ** are treated as list items.
+type BodyGroup =
+  | { type: 'p';    text: string }
+  | { type: 'list'; items: string[] };
+
+function groupBody(body: string[]): BodyGroup[] {
+  const groups: BodyGroup[] = [];
+  let currentList: string[] | null = null;
+  for (const item of body) {
+    if (item.startsWith('**')) {
+      if (!currentList) {
+        currentList = [];
+        groups.push({ type: 'list', items: currentList });
+      }
+      currentList.push(item);
+    } else {
+      currentList = null;
+      groups.push({ type: 'p', text: item });
+    }
+  }
+  return groups;
+}
 ---
 
 <!doctype html>
@@ -71,9 +95,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 ? d.heroLeftSections.map((section: { heading: string; body: string[] }) => (
                     <div class="case-section hero-left-section">
                       <h3 class="hero-left-heading">{section.heading}</h3>
-                      {section.body.map((p: string) => (
-                        <p set:html={p.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')} />
-                      ))}
+                      {groupBody(section.body).map((block: BodyGroup) =>
+                        block.type === 'p'
+                          ? <p set:html={block.text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')} />
+                          : <ul class="hero-left-list">
+                              {block.items.map((item: string) => (
+                                <li set:html={item.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')} />
+                              ))}
+                            </ul>
+                      )}
                     </div>
                   ))
                 : metaSections.map(section => (
@@ -307,6 +337,26 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     margin: 0 0 10px;
   }
   .hero-left-section p strong {
+    font-weight: 700;
+    color: var(--color-olive-500);
+  }
+
+  .hero-left-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 8px 0 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .hero-left-list li {
+    font-family: 'Abel', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--color-olive-600);
+  }
+  .hero-left-list li strong {
     font-weight: 700;
     color: var(--color-olive-500);
   }
