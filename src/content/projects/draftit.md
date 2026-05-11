@@ -19,6 +19,11 @@ heroImage: /images/draftit.png
 finalProductionImages:
   - /images/Draftit%20Admin%20Dashboard.png
   - /images/Draftit%20Incident%20report.png
+finalProductionText:
+  - "The outcome was a modernised and more cohesive platform experience that improved clarity without oversimplifying domain complexity."
+  - "The redesigned dashboard shifted from passive information display to actionable overview. Case officers gained clearer visibility into workload distribution, case status and prioritisation."
+  - "Navigation became more structured and predictable. Key workflows required fewer steps, and visual consistency reduced cognitive load across modules."
+  - "Most importantly, the platform became better aligned with how users actually worked, not just how the system was originally structured."
 processImage: /images/draftit-process.png
 order: 6
 ---
