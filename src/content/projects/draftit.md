@@ -29,11 +29,11 @@ order: 6
 
 ### Discovery
 
-The process phase focused on validating the direction through user feedback and testing. Three decisions guided the exploration:
+The discovery phase focused on understanding the actual structure of case officers' daily decision-making, not just their stated frustrations, but the sequence of questions they needed to answer every morning.
 
-1. Supercharging the onboarding — make the reporting assistant easy to get up and running
-2. Strengthening visual hierarchy — which drives user to a natural, predictable path
-3. Design for adoption — make the product a natural part of their workflow
+Through workshops and stakeholder sessions, we identified the core systemic failure: the tool was a passive archive. It stored cases. It never prioritised them. Critical and overdue cases were invisible unless someone manually searched for them. Dashboard metrics existed but were built around data categories, not user decisions.
+
+The most important insight was that efficiency for these users wasn't about speed. It was about reducing the mental overhead of operating inside a legally complex process with no clear signal of where to focus.
 
 ### Define
 
