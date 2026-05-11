@@ -9,7 +9,11 @@ workDone: Research & discovery, UX/UI design, prototyping, usability testing, de
 heroImage: /images/ConvfeatImage.png
 heroImageLarge: true
 finalProductionImages:
-  - /images/sinch-conversation-api-final-01.png
+  - /images/ConvGroupImage.png
+finalProductionText:
+  - 'The final experience is centered around a <strong>Conversation entity</strong> that organizes everything else. This matched how users think ("I want to set up a conversation flow") rather than how the system is implemented ("here are all the channel components").'
+  - "Key outcomes visible in the UI:"
+  - '<ul><li><strong>Navigation clarity:</strong> a stable left nav that separates configuration domains and reduces "where do I go next?" friction</li><li><strong>Configuration that feels guided:</strong> structured pages with grouped sections, clearer labels, and contextual feedback</li><li><strong>State visibility:</strong> dashboards and lists that show connected channels and readiness at a glance, reducing reliance on documentation</li></ul>'
 processImage: /images/sinch-conversation-api-process.png
 hideMetaSections: true
 heroLeftSections:
