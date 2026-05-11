@@ -2,6 +2,8 @@
 title: Verisure Innovation
 slug: verisure-innovation
 role: UX/UI Designer
+roleDetail: Depending on the project scope and requirements, I have taken on both lead and supporting design roles across multiple initiatives within the company. As a Lead Designer, I have been responsible for shaping design strategies, defining user experiences, and ensuring consistency across products.
+description: At Verisure, we continuously work on numerous projects aimed at enhancing our digital products and services. My primary focus is improving the user experience across both our mobile app and website user portal, ensuring a seamless and intuitive interaction for our customers.
 platform: Smartphones, Web
 workDone: My work included conceptualisation, testing, prototyping and design.
 award: Red Dot Award 2021
