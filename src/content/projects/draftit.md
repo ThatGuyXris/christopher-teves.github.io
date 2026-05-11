@@ -53,6 +53,14 @@ The dashboard is structured in four layers, each answering a progressively more 
 - **Where is the pressure?** — the chart row: school load, case volume trend, status breakdown
 - **What specifically needs action?** — the case table and quick actions panel, reached only after full context
 
+### A decision worth explaining: the alert banner
+
+There was a reasonable argument for handling overdue cases through a filter in the case table, a more conventional pattern that adds less visual weight. The problem: it requires the user to know to look for the problem. The banner removes that dependency entirely. In a legally time-sensitive workflow where a missed case has real consequences, proactive surfacing isn't a convenience, it's the point.
+
+![Dashboard wireframe](/christopher-teves.github.io/images/Dashboard-wireframe.png)
+
+![Report wireframe](/christopher-teves.github.io/images/report-wireframe.png)
+
 ### Finalisation
 
 The process phase focused on validating the direction through user feedback and testing. We continuously refined the designs based on feedback from stakeholders and users through a series of usability tests throughout the project.
