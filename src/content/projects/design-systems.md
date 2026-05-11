@@ -10,6 +10,7 @@ timeframe: Ongoing
 heroImage: /images/DS-components.png
 heroImageLarge: true
 hideMetaSections: true
+hideProcessHeading: true
 heroLeftSections:
   - heading: "Overview"
     body:
@@ -26,6 +27,12 @@ heroLeftSections:
       - "These challenges revealed the same underlying need, to create forward-looking design systems that unify design and engineering, reduce overhead, and scale with evolving product ecosystems."
 order: 3
 ---
+
+![Styling and colour](/christopher-teves.github.io/images/Styling color.png)
+
+![Icons](/christopher-teves.github.io/images/Icons.png)
+
+![Typography](/christopher-teves.github.io/images/typo.png)
 
 ### Vision & Strategy
 
