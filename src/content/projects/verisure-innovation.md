@@ -14,7 +14,7 @@ platform: Smartphones, Web
 workDone: My work included conceptualisation, testing, prototyping and design.
 award: Red Dot Awards 2023
 awardUrl: https://www.red-dot.org/project/verisure-automation-66712
-heroImage: /images/verisure-innovation-hero.png
+heroImage: /images/App%20Design%20img.png
 finalProductionImages:
   - /images/verisure-innovation-final-01.png
 processImage: /images/verisure-innovation-process.png
