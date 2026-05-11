@@ -24,27 +24,8 @@ finalProductionText:
   - "The redesigned dashboard shifted from passive information display to actionable overview. Case officers gained clearer visibility into workload distribution, case status and prioritisation."
   - "Navigation became more structured and predictable. Key workflows required fewer steps, and visual consistency reduced cognitive load across modules."
   - "Most importantly, the platform became better aligned with how users actually worked, not just how the system was originally structured."
-processImage: /images/draftit-process.png
 order: 6
 ---
-
-### The problem
-
-The brief was to understand an included reporting system currently residing in the Draftit platform and assess how to go about improving it. The result was a clear outcome of the brief — to either improve the reporting system or replace it entirely.
-
-The brief to focus on is: There are currently limited reporting capabilities within the Draftit platform. Users want the ability to report on compliance content and usage within the tool. The client is unable to help users with this due to missing tracking and lack of advanced filtering. The current reports section is built as a "placeholder for future growth" but currently lacks almost all necessary functionality.
-
-### Final production
-
-The final experience is centred around a Conversation entity that organises everything else. This matched how users think ("I want to set up a conversation flow") rather than how the system is implemented ("here are all the channel components").
-
-Key outcomes visible in the UI:
-
-- **Navigation clarity:** top rail that separates configuration domains and reduces "where do I go next?" friction
-- **Configure that feels guided:** structured pages with grouped sections, cleaner labels, and contextual feedback
-- **State visibility:** dashboards and hints that show connected channels and readiness at a glance, reducing reliance on documentation
-
-### The process
 
 #### Discovery
 
