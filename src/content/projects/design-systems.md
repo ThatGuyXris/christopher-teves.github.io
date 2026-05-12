@@ -77,7 +77,6 @@ To keep each design system maintainable and adaptable, I established clear docum
 
 - Developed **pattern templates** with sections for descriptions, variants, accessibility, and best practices.
 - Built **contribution workflows** for designers and developers to suggest or extend components.
-- Introduced **contribution workflows** for designers and developers to suggest or extend components.
 - Integrated a **design QA checkpoint** in sprints to ensure implementation matches design.
 
 This approach allowed every design system to stay current, transparent, and collaborative, not just a static library, but a living document.
