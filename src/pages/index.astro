@@ -285,10 +285,12 @@ const projectLinks = [
     justify-content: space-between;
     padding: 20px 0;
     text-decoration: none;
-    transition: opacity 0.2s ease;
+    color: var(--color-text-primary);
+    transition: opacity 0.2s ease, color 0.2s ease;
   }
   .works-row:hover {
     opacity: 0.6;
+    color: var(--color-amber-300);
   }
 
   .works-title {
@@ -296,7 +298,7 @@ const projectLinks = [
     font-weight: 700;
     font-size: clamp(42px, 6vw, 88px);
     text-transform: uppercase;
-    color: var(--color-text-primary);
+    color: inherit;
     line-height: 1.1;
     letter-spacing: -0.5px;
   }
@@ -304,7 +306,7 @@ const projectLinks = [
   .works-arrow {
     display: flex;
     align-items: center;
-    color: var(--color-text-primary);
+    color: inherit;
     flex-shrink: 0;
     margin-left: 24px;
   }
