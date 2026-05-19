@@ -1,8 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Read trends.json from the public folder
-// Falls back to empty array if file doesn't exist yet
 let trends: any[] = [];
 try {
   const raw = await import('../../public/trends.json');
@@ -12,10 +10,15 @@ try {
 }
 
 const categoryColors: Record<string, string> = {
-  'UX/UI Design':   'var(--color-olive-400)',
-  'Product Design': 'var(--color-olive-500)',
-  'AI & Tech':      'var(--color-amber-400)',
-  'Design Tools':   'var(--color-olive-300)',
+  'UX/UI Design':       'var(--color-olive-500)',
+  'Product Design':     'var(--color-olive-400)',
+  'AI & Tech':          'var(--color-amber-400)',
+  'Design Tools':       'var(--color-olive-300)',
+  'Technology':         'var(--color-olive-400)',
+  'Business & Strategy':'var(--color-olive-500)',
+  'Creative Culture':   'var(--color-amber-500)',
+  'Web Development':    'var(--color-olive-300)',
+  'Sustainability':     'var(--color-olive-500)',
 };
 
 const lastUpdated = trends.length > 0 && trends[0].date
@@ -27,254 +30,408 @@ const lastUpdated = trends.length > 0 && trends[0].date
 
 <BaseLayout
   title="Trends — Christopher Teves"
-  description="Daily UX/UI, Product Design and AI trends curated by Christopher Teves."
+  description="Design and tech trends curated by Christopher Teves."
   navTheme="light"
 >
-  <div class="trends-page">
+  <div class="feed-page">
 
     <!-- Page header -->
-    <header class="page-header">
-      <div class="page-header__inner">
-        <p class="page-header__label">Daily Digest</p>
-        <h1 class="page-header__title">Design & Tech Radar</h1>
-        <p class="page-header__description">
-          UX/UI, Product Design, AI and Design Tools — curated daily by an AI agent and delivered fresh every morning.
-        </p>
+    <header class="feed-header">
+      <div class="feed-header__inner">
+        <div class="feed-header__left">
+          <p class="feed-header__label">Design & Tech Radar</p>
+          <h1 class="feed-header__title">What's happening</h1>
+        </div>
         {lastUpdated && (
-          <p class="page-header__date">Last updated: {lastUpdated}</p>
+          <p class="feed-header__date">Updated {lastUpdated}</p>
         )}
       </div>
     </header>
 
-    <!-- Trend cards -->
-    <section class="trends-section">
-      <div class="trends-inner">
+    <!-- Feed -->
+    <div class="feed-layout">
 
+      <!-- Main feed -->
+      <main class="feed-main">
         {trends.length === 0 ? (
-          <div class="empty-state">
-            <p class="empty-state__text">The first digest will arrive tomorrow morning.</p>
+          <div class="feed-empty">
+            <p>The first digest arrives Monday morning.</p>
           </div>
         ) : (
-          <ol class="trends-list">
+          <ol class="feed-list">
             {trends.map((trend, index) => {
               const accentColor = categoryColors[trend.category] || 'var(--color-olive-400)';
               return (
-                <li class="trend-card">
-                  <div class="trend-card__accent" style={`background: ${accentColor}`} />
-                  <div class="trend-card__body">
-                    <div class="trend-card__meta">
-                      <span class="trend-card__category" style={`color: ${accentColor}`}>
+                <li class="feed-item">
+                  <div class="feed-item__inner">
+
+                    <!-- Top row: category + source -->
+                    <div class="feed-item__meta">
+                      <span class="feed-item__category" style={`color: ${accentColor}`}>
                         {trend.category}
                       </span>
-                      <span class="trend-card__index">0{index + 1}</span>
+                      <span class="feed-item__dot">·</span>
+                      <a
+                        href={trend.source_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="feed-item__source"
+                      >
+                        {trend.source_name}
+                      </a>
                     </div>
-                    <h2 class="trend-card__title">{trend.title}</h2>
-                    <div class="trend-card__section">
-                      <p class="trend-card__section-label">Why it matters</p>
-                      <p class="trend-card__text">{trend.why_it_matters}</p>
+
+                    <!-- Title -->
+                    <h2 class="feed-item__title">{trend.title}</h2>
+
+                    <!-- Why it matters -->
+                    <p class="feed-item__why">{trend.why_it_matters}</p>
+
+                    <!-- Expandable: what's happening -->
+                    <details class="feed-item__details">
+                      <summary class="feed-item__summary">What's happening</summary>
+                      <p class="feed-item__body">{trend.whats_happening}</p>
+                    </details>
+
+                    <!-- Footer -->
+                    <div class="feed-item__footer">
+                      <span class="feed-item__index">
+                        {String(index + 1).padStart(2, '0')}
+                        <span class="feed-item__total">/ {String(trends.length).padStart(2, '0')}</span>
+                      </span>
+                      <a
+                        href={trend.source_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="feed-item__read"
+                      >
+                        Read full story ↗
+                      </a>
                     </div>
-                    <div class="trend-card__section">
-                      <p class="trend-card__section-label">What's happening</p>
-                      <p class="trend-card__text">{trend.whats_happening}</p>
-                    </div>
-                    <a
-                      href={trend.source_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="trend-card__source"
-                    >
-                      {trend.source_name} ↗
-                    </a>
+
                   </div>
                 </li>
               );
             })}
           </ol>
         )}
+      </main>
 
-      </div>
-    </section>
+      <!-- Sidebar -->
+      <aside class="feed-sidebar">
+        <div class="sidebar-card">
+          <p class="sidebar-card__label">About this feed</p>
+          <p class="sidebar-card__text">
+            Curated three times a week by an AI agent. Covers UX/UI, Product Design, AI, Design Tools, Technology, Business, Creative Culture and more.
+          </p>
+        </div>
+        <div class="sidebar-card">
+          <p class="sidebar-card__label">Categories</p>
+          <ul class="sidebar-tags">
+            {['UX/UI Design', 'Product Design', 'AI & Tech', 'Design Tools', 'Technology', 'Business & Strategy', 'Creative Culture', 'Web Development', 'Sustainability'].map(cat => (
+              <li class="sidebar-tag" style={`border-color: ${categoryColors[cat] || 'var(--color-olive-300)'};color: ${categoryColors[cat] || 'var(--color-olive-300)'}`}>
+                {cat}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </aside>
 
+    </div>
   </div>
 </BaseLayout>
 
 <style>
-  /* ── Page layout ─────────────────────────────────────────────── */
-  .trends-page {
+  /* ── Page ────────────────────────────────────────────────────── */
+  .feed-page {
     background: var(--color-surface-page);
     min-height: 100vh;
   }
 
   /* ── Header ──────────────────────────────────────────────────── */
-  .page-header {
-    background: var(--color-surface-inverse);
-    padding: calc(var(--nav-height) + 64px) var(--page-padding-desktop) 64px;
+  .feed-header {
+    background: var(--color-surface-page);
+    border-bottom: 1px solid var(--color-border-subtle);
+    padding: calc(var(--nav-height) + 32px) var(--page-padding-desktop) 24px;
   }
 
-  .page-header__inner {
+  .feed-header__inner {
     max-width: var(--content-max-width);
     margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
   }
 
-  .page-header__label {
+  .feed-header__label {
     font: var(--font-label-small);
     letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
     color: var(--color-amber-400);
-    margin: 0 0 16px;
+    margin: 0 0 8px;
   }
 
-  .page-header__title {
-    font: var(--font-display-medium);
-    color: var(--color-text-inverse);
-    letter-spacing: var(--tracking-display);
-    margin: 0 0 20px;
-    line-height: 0.96;
-  }
-
-  .page-header__description {
-    font: var(--font-body-large);
-    color: var(--color-olive-200);
-    max-width: 560px;
-    margin: 0 0 12px;
-  }
-
-  .page-header__date {
-    font: var(--font-body-small);
-    color: var(--color-olive-300);
+  .feed-header__title {
+    font: var(--font-heading-1);
+    color: var(--color-text-primary);
+    letter-spacing: var(--tracking-tight);
     margin: 0;
   }
 
-  /* ── Trends section ──────────────────────────────────────────── */
-  .trends-section {
-    padding: 64px var(--page-padding-desktop) 96px;
+  .feed-header__date {
+    font: var(--font-body-small);
+    color: var(--color-text-secondary);
+    margin: 0;
+    white-space: nowrap;
   }
 
-  .trends-inner {
+  /* ── Layout ──────────────────────────────────────────────────── */
+  .feed-layout {
     max-width: var(--content-max-width);
     margin: 0 auto;
+    padding: 0 var(--page-padding-desktop) 96px;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 48px;
+    align-items: start;
   }
 
-  /* ── Trends list ─────────────────────────────────────────────── */
-  .trends-list {
+  /* ── Feed list ───────────────────────────────────────────────── */
+  .feed-list {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
   }
 
-  /* ── Trend card ──────────────────────────────────────────────── */
-  .trend-card {
-    display: flex;
-    background: var(--color-surface-secondary);
-    border: 1px solid var(--color-border-subtle);
-    transition: border-color 0.2s ease;
+  /* ── Feed item ───────────────────────────────────────────────── */
+  .feed-item {
+    border-bottom: 1px solid var(--color-border-subtle);
   }
 
-  .trend-card:hover {
-    border-color: var(--color-border-default);
+  .feed-item__inner {
+    padding: 28px 0;
+    transition: opacity 0.15s ease;
   }
 
-  .trend-card__accent {
-    width: 4px;
-    flex-shrink: 0;
+  .feed-item:hover .feed-item__inner {
+    opacity: 0.85;
   }
 
-  .trend-card__body {
-    padding: 32px 36px;
-    flex: 1;
-  }
-
-  .trend-card__meta {
+  /* Meta row */
+  .feed-item__meta {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
+    gap: 6px;
+    margin-bottom: 10px;
   }
 
-  .trend-card__category {
+  .feed-item__category {
     font: var(--font-label-small);
     letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
+    font-weight: 600;
   }
 
-  .trend-card__index {
+  .feed-item__dot {
+    color: var(--color-text-tertiary);
+    font-size: 12px;
+  }
+
+  .feed-item__source {
+    font: var(--font-body-small);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .feed-item__source:hover {
+    color: var(--color-text-primary);
+  }
+
+  /* Title */
+  .feed-item__title {
+    font: var(--font-heading-3);
+    color: var(--color-text-primary);
+    letter-spacing: var(--tracking-tight);
+    margin: 0 0 12px;
+    line-height: 1.3;
+  }
+
+  /* Why it matters */
+  .feed-item__why {
+    font: var(--font-body-medium);
+    color: var(--color-text-secondary);
+    letter-spacing: var(--tracking-normal);
+    margin: 0 0 16px;
+    line-height: 1.7;
+  }
+
+  /* Expandable details */
+  .feed-item__details {
+    margin-bottom: 16px;
+  }
+
+  .feed-item__summary {
+    font: var(--font-label-small);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+    transition: color 0.15s ease;
+  }
+
+  .feed-item__summary::-webkit-details-marker { display: none; }
+
+  .feed-item__summary::before {
+    content: '›';
+    display: inline-block;
+    transition: transform 0.2s ease;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .feed-item__details[open] .feed-item__summary::before {
+    transform: rotate(90deg);
+  }
+
+  .feed-item__summary:hover {
+    color: var(--color-text-primary);
+  }
+
+  .feed-item__body {
+    font: var(--font-body-medium);
+    color: var(--color-text-primary);
+    letter-spacing: var(--tracking-normal);
+    margin: 12px 0 0;
+    line-height: 1.75;
+    padding-left: 16px;
+    border-left: 2px solid var(--color-border-subtle);
+  }
+
+  /* Footer row */
+  .feed-item__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .feed-item__index {
     font: var(--font-label-small);
     letter-spacing: var(--tracking-wide);
     color: var(--color-text-tertiary);
   }
 
-  .trend-card__title {
-    font: var(--font-heading-3);
+  .feed-item__total {
+    color: var(--color-border-subtle);
+  }
+
+  .feed-item__read {
+    font: var(--font-label-small);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .feed-item__read:hover {
     color: var(--color-text-primary);
-    letter-spacing: var(--tracking-tight);
-    margin: 0 0 28px;
   }
 
-  .trend-card__section {
-    margin-bottom: 20px;
+  /* ── Sidebar ─────────────────────────────────────────────────── */
+  .feed-sidebar {
+    padding-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: sticky;
+    top: calc(var(--nav-height) + 24px);
   }
 
-  .trend-card__section-label {
+  .sidebar-card {
+    background: var(--color-surface-primary);
+    padding: 20px;
+    border: 1px solid var(--color-border-subtle);
+  }
+
+  .sidebar-card__label {
     font: var(--font-label-small);
     letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
     color: var(--color-text-secondary);
-    margin: 0 0 6px;
+    margin: 0 0 10px;
   }
 
-  .trend-card__text {
-    font: var(--font-body-medium);
-    color: var(--color-text-primary);
-    letter-spacing: var(--tracking-normal);
-    margin: 0;
-  }
-
-  .trend-card__source {
-    display: inline-block;
-    margin-top: 8px;
-    font: var(--font-label-medium);
+  .sidebar-card__text {
+    font: var(--font-body-small);
     color: var(--color-text-secondary);
-    text-decoration: none;
-    border-bottom: 1px solid var(--color-border-subtle);
-    padding-bottom: 1px;
-    transition: color 0.15s ease, border-color 0.15s ease;
+    margin: 0;
+    line-height: 1.65;
   }
 
-  .trend-card__source:hover {
-    color: var(--color-text-primary);
-    border-color: var(--color-border-strong);
+  .sidebar-tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .sidebar-tag {
+    font: var(--font-label-small);
+    letter-spacing: var(--tracking-wide);
+    font-size: 10px;
+    padding: 3px 8px;
+    border: 1px solid;
+    text-transform: uppercase;
   }
 
   /* ── Empty state ─────────────────────────────────────────────── */
-  .empty-state {
+  .feed-empty {
     padding: 80px 0;
-    text-align: center;
   }
 
-  .empty-state__text {
+  .feed-empty p {
     font: var(--font-body-large);
     color: var(--color-text-secondary);
   }
 
   /* ── Responsive ──────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .feed-layout {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .feed-sidebar {
+      position: static;
+      padding-top: 48px;
+      border-top: 1px solid var(--color-border-subtle);
+    }
+  }
+
   @media (max-width: 768px) {
-    .page-header {
-      padding: calc(var(--nav-height) + 40px) var(--page-padding-mobile) 40px;
+    .feed-header {
+      padding: calc(var(--nav-height) + 24px) var(--page-padding-mobile) 20px;
     }
 
-    .page-header__title {
-      font-size: 48px;
+    .feed-header__inner {
+      flex-direction: column;
+      align-items: flex-start;
     }
 
-    .trends-section {
-      padding: 40px var(--page-padding-mobile) 64px;
+    .feed-layout {
+      padding: 0 var(--page-padding-mobile) 64px;
     }
 
-    .trend-card__body {
-      padding: 24px 20px;
+    .feed-item__title {
+      font-size: 20px;
     }
   }
 </style>
