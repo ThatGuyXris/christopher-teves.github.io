@@ -331,7 +331,7 @@ const lastUpdated = trends.length > 0 && trends[0].date
   }
 
   .feed-item__total {
-    color: var(--color-border-subtle);
+    color: var(--color-text-secondary);
   }
 
   .feed-item__read {
@@ -344,6 +344,8 @@ const lastUpdated = trends.length > 0 && trends[0].date
 
   .feed-item__read:hover {
     color: var(--color-text-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   /* ── Sidebar ─────────────────────────────────────────────────── */
