@@ -67,21 +67,30 @@ const projectLinks = [
   <Divider from="olive" to="cream" direction="left-up" />
 
   <!-- ═══════════════════════════════════════════════════════════
-       SELECT WORKS — cream bg
+       SELECT WORKS — olive bg
        Background mockup image with parallax + top/bottom fade mask.
-       Left: italic "Select works" label. Right: large underlined links.
+       Full-width rows: title left, arrow right, dividers between.
        ═══════════════════════════════════════════════════════════ -->
-  <section class="section--cream works" id="works">
+  <section class="section--olive works" id="works">
 
     <!-- Parallax background image -->
     <div class="works-bg" aria-hidden="true"></div>
 
     <div class="container works-inner">
-      <div class="works-eyebrow">Select works</div>
+      <!-- Label + watermark header -->
+      <div class="works-header">
+        <div class="works-watermark" aria-hidden="true">SELECT WORKS</div>
+        <div class="works-eyebrow">/Select works</div>
+      </div>
+
+      <!-- Project rows -->
       <ul class="works-list" role="list">
         {projectLinks.map(p => (
-          <li>
-            <a href={`/christopher-teves.github.io/portfolio/${p.slug}`}>{p.title}</a>
+          <li class="works-item">
+            <a href={`/christopher-teves.github.io/portfolio/${p.slug}`} class="works-row">
+              <span class="works-title">{p.title}</span>
+              <span class="works-arrow">↗</span>
+            </a>
           </li>
         ))}
       </ul>
@@ -287,45 +296,89 @@ const projectLinks = [
   }
 
   .works-inner {
-    position: relative; /* above the bg */
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 64px;
-    align-items: start;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
   }
 
-  /* "Select works" — Space Grotesk italic, large */
-  .works-eyebrow {
-    font-family: var(--font-serif);
-    font-style: italic;
+  /* Header: watermark + label stacked */
+  .works-header {
+    position: relative;
+  }
+
+  /* Ghosted watermark behind label */
+  .works-watermark {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-family: var(--font-display);
+    font-size: clamp(80px, 14vw, 200px);
     font-weight: 400;
-    font-size: 56px;
-    letter-spacing: -0.5px;
-    color: var(--color-amber-400);
-    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--color-cream-400);
+    opacity: 0.08;
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
   }
 
-  /* Project links — Lilita One, very large, underlined, olive-400 */
+  /* "/Select works" label */
+  .works-eyebrow {
+    position: relative;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.2px;
+    color: rgba(220, 215, 200, 0.6);
+    line-height: 1;
+    padding: 24px 0;
+  }
+
+  /* Project rows */
   .works-list {
     display: flex;
     flex-direction: column;
-    gap: 4px;
   }
-  .works-list a {
-    display: block;
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(36px, 5.6vw, 84px);
-    line-height: 1.02;
-    letter-spacing: -2px;
+
+  .works-item {
+    border-bottom: 1px solid rgba(220, 215, 200, 0.2);
+  }
+  .works-item:first-child {
+    border-top: 1px solid rgba(220, 215, 200, 0.2);
+  }
+
+  .works-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+  .works-row:hover {
+    opacity: 0.7;
+  }
+
+  .works-title {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 56px);
     text-transform: uppercase;
-    color: var(--color-olive-400);
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 6px;
-    transition: color 200ms ease;
+    color: var(--color-cream-400);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
   }
-  .works-list a:hover { color: var(--color-amber-500); }
+
+  .works-arrow {
+    font-size: clamp(24px, 3vw, 44px);
+    color: var(--color-cream-400);
+    line-height: 1;
+    flex-shrink: 0;
+    margin-left: 24px;
+  }
 
   /* ── Facts ────────────────────────────────────────────────────── */
   .facts {
