@@ -73,9 +73,8 @@ const projectLinks = [
   <section class="section--cream works" id="works">
 
     <div class="container works-inner">
-      <!-- Label + watermark header -->
+      <!-- Label -->
       <div class="works-header">
-        <div class="works-watermark" aria-hidden="true">SELECT WORKS</div>
         <div class="works-eyebrow">/Select works</div>
       </div>
 
@@ -251,32 +250,14 @@ const projectLinks = [
     margin-bottom: 32px;
   }
 
-  /* Ghosted watermark behind label */
-  .works-watermark {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    font-family: var(--font-display);
-    font-size: clamp(80px, 14vw, 200px);
-    font-weight: 400;
-    text-transform: uppercase;
-    color: var(--color-olive-500);
-    opacity: 0.06;
-    line-height: 1;
-    white-space: nowrap;
-    pointer-events: none;
-    user-select: none;
-  }
-
   /* "/Select works" label */
   .works-eyebrow {
     position: relative;
     font-family: 'Inter', system-ui, sans-serif;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 18px;
     letter-spacing: 0.2px;
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary);
     line-height: 1;
   }
 
@@ -287,10 +268,10 @@ const projectLinks = [
   }
 
   .works-item {
-    border-bottom: 1px solid var(--color-border-subtle);
+    border-bottom: 2px solid var(--color-border-default);
   }
   .works-item:first-child {
-    border-top: 1px solid var(--color-border-subtle);
+    border-top: 2px solid var(--color-border-default);
   }
 
   .works-row {
@@ -308,7 +289,7 @@ const projectLinks = [
   .works-title {
     font-family: 'Inter', system-ui, sans-serif;
     font-weight: 700;
-    font-size: clamp(28px, 4vw, 52px);
+    font-size: clamp(36px, 5vw, 72px);
     text-transform: uppercase;
     color: var(--color-text-primary);
     line-height: 1.1;
@@ -316,8 +297,9 @@ const projectLinks = [
   }
 
   .works-arrow {
-    font-size: 18px;
-    color: var(--color-text-secondary);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-text-primary);
     line-height: 1;
     flex-shrink: 0;
     margin-left: 24px;
