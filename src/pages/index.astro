@@ -163,6 +163,17 @@ const projectLinks = [
 
 </BaseLayout>
 
+<script>
+  // Split each works title into letter spans for wave animation
+  document.querySelectorAll('.works-title').forEach(title => {
+    const text = title.textContent || '';
+    title.innerHTML = text.split('').map((char, i) =>
+      char === ' '
+        ? `<span class="works-letter" style="--i:${i}" aria-hidden="true">&nbsp;</span>`
+        : `<span class="works-letter" style="--i:${i}">${char}</span>`
+    ).join('');
+  });
+</script>
 
 <style>
   /* ── Hero ─────────────────────────────────────────────────────── */
@@ -301,6 +312,25 @@ const projectLinks = [
     color: inherit;
     line-height: 1.1;
     letter-spacing: -0.5px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .works-letter {
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.2s ease;
+  }
+
+  @keyframes letterWave {
+    0%   { transform: translateY(0); }
+    40%  { transform: translateY(-10px); }
+    70%  { transform: translateY(3px); }
+    100% { transform: translateY(0); }
+  }
+
+  .works-row:hover .works-letter {
+    animation: letterWave 0.6s ease forwards;
+    animation-delay: calc(var(--i) * 0.03s);
   }
 
   .works-arrow {
