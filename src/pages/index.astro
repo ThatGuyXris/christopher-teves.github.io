@@ -83,7 +83,10 @@ const projectLinks = [
         {projectLinks.map(p => (
           <li class="works-item">
             <a href={`/christopher-teves.github.io/portfolio/${p.slug}`} class="works-row">
-              <span class="works-title">{p.title}</span>
+              <span class="works-title">
+                <span class="works-title__base">{p.title}</span>
+                <span class="works-title__reveal" aria-hidden="true">{p.title}</span>
+              </span>
               <span class="works-arrow">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <line x1="7" y1="17" x2="17" y2="7"/>
@@ -163,17 +166,6 @@ const projectLinks = [
 
 </BaseLayout>
 
-<script>
-  // Split each works title into letter spans for wave animation
-  document.querySelectorAll('.works-title').forEach(title => {
-    const text = title.textContent || '';
-    title.innerHTML = text.split('').map((char, i) =>
-      char === ' '
-        ? `<span class="works-letter" style="--i:${i}" aria-hidden="true">&nbsp;</span>`
-        : `<span class="works-letter" style="--i:${i}">${char}</span>`
-    ).join('');
-  });
-</script>
 
 <style>
   /* ── Hero ─────────────────────────────────────────────────────── */
@@ -311,24 +303,28 @@ const projectLinks = [
     color: inherit;
     line-height: 1.1;
     letter-spacing: -0.5px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  :global(.works-letter) {
+    position: relative;
+    overflow: hidden;
     display: inline-block;
   }
 
-  @keyframes letterWave {
-    0%   { transform: translateY(0); }
-    40%  { transform: translateY(-12px); }
-    70%  { transform: translateY(4px); }
-    100% { transform: translateY(0); }
+  .works-title__base {
+    display: block;
+    transition: opacity 0.4s ease;
   }
 
-  :global(.works-row:hover .works-letter) {
-    animation: letterWave 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
-    animation-delay: calc(var(--i) * 0.04s);
+  .works-title__reveal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    color: var(--color-amber-500);
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.55s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .works-row:hover .works-title__reveal {
+    clip-path: inset(0 0% 0 0);
   }
 
   .works-arrow {
