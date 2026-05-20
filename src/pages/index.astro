@@ -82,11 +82,8 @@ const projectLinks = [
       <ul class="works-list" role="list">
         {projectLinks.map(p => (
           <li class="works-item">
-            <a href={`/christopher-teves.github.io/portfolio/${p.slug}`} class="works-row">
-              <span class="works-title">
-                <span class="works-title__base">{p.title}</span>
-                <span class="works-title__reveal" aria-hidden="true">{p.title}</span>
-              </span>
+            <a href={`/christopher-teves.github.io/portfolio/${p.slug}`} class="works-row" data-text={p.title.toUpperCase()}>
+              <span class="works-title">{p.title.toUpperCase()}</span>
               <span class="works-arrow">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <line x1="7" y1="17" x2="17" y2="7"/>
@@ -165,6 +162,38 @@ const projectLinks = [
   <Footer theme="cream" />
 
 </BaseLayout>
+
+<script>
+  const mixed = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
+  const r = (set: string) => set[Math.floor(Math.random() * set.length)];
+
+  document.querySelectorAll<HTMLAnchorElement>('.works-list a[data-text]').forEach(row => {
+    const el = row.querySelector<HTMLElement>('.works-title');
+    const text = row.getAttribute('data-text');
+    if (!el || !text) return;
+    let iv: ReturnType<typeof setInterval>;
+
+    row.addEventListener('mouseenter', () => {
+      clearInterval(iv);
+      let iter = 0;
+      iv = setInterval(() => {
+        el.innerHTML = text.split('').map((c, i) => {
+          if (c === ' ') return ' ';
+          if (i < iter - 1) return text[i];
+          if (i === Math.floor(iter)) return '<span style="color:#d4a657;border-right:2px solid #d4a657">' + r(mixed) + '</span>';
+          return '<span style="color:var(--color-text-secondary)">' + r(mixed) + '</span>';
+        }).join('');
+        iter += 0.55;
+        if (iter > text.length) { el.textContent = text; clearInterval(iv); }
+      }, 35);
+    });
+
+    row.addEventListener('mouseleave', () => {
+      clearInterval(iv);
+      el.textContent = text;
+    });
+  });
+</script>
 
 
 <style>
@@ -296,35 +325,13 @@ const projectLinks = [
   }
 
   .works-title {
-    font-family: 'Abel', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
-    font-size: clamp(42px, 6vw, 88px);
+    font-size: clamp(32px, 5vw, 72px);
     text-transform: uppercase;
     color: inherit;
     line-height: 1.1;
     letter-spacing: -0.5px;
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-  }
-
-  .works-title__base {
-    display: block;
-    transition: opacity 0.4s ease;
-  }
-
-  .works-title__reveal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    white-space: nowrap;
-    color: var(--color-amber-500);
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path 0.55s cubic-bezier(0.77, 0, 0.175, 1);
-  }
-
-  .works-row:hover .works-title__reveal {
-    clip-path: inset(0 0% 0 0);
   }
 
   .works-arrow {
