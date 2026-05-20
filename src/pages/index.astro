@@ -16,6 +16,16 @@ const projectLinks = [
   { slug: 'verisure-innovation',  title: 'Verisure Innovation' },
   { slug: 'draftit',              title: 'Draftit' },
 ];
+
+// Hand-drawn brushstroke paths — one unique wobbly curve per project row
+const brushPaths = [
+  'M 3,11 C 38,7 82,15 126,9 C 170,4 214,13 252,9 C 272,7 287,12 297,10',
+  'M 3,12 C 32,7 72,16 112,10 C 152,5 192,14 232,9 C 260,11 281,7 297,10',
+  'M 3,10 C 52,14 102,6 152,12 C 192,16 242,7 297,10',
+  'M 3,11 C 28,6 58,16 88,10 C 118,5 148,15 178,9 C 208,14 242,6 272,12 C 283,13 291,8 297,10',
+  'M 3,10 C 62,7 122,14 182,9 C 222,6 262,13 297,10',
+  'M 3,13 C 42,6 84,16 124,8 C 164,2 204,15 244,9 C 267,6 283,14 297,11',
+];
 ---
 
 <BaseLayout
@@ -80,10 +90,15 @@ const projectLinks = [
 
       <!-- Project rows -->
       <ul class="works-list" role="list">
-        {projectLinks.map(p => (
+        {projectLinks.map((p, idx) => (
           <li class="works-item">
-            <a href={`/christopher-teves.github.io/portfolio/${p.slug}`} class="works-row" data-text={p.title.toUpperCase()}>
-              <span class="works-title">{p.title.toUpperCase()}</span>
+            <a href={`/christopher-teves.github.io/portfolio/${p.slug}`} class="works-row">
+              <span class="works-title">
+                {p.title.toUpperCase()}
+                <svg class="brush-stroke" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true">
+                  <path d={brushPaths[idx]} />
+                </svg>
+              </span>
               <span class="works-arrow">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <line x1="7" y1="17" x2="17" y2="7"/>
@@ -164,33 +179,24 @@ const projectLinks = [
 </BaseLayout>
 
 <script>
-  const mixed = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
-  const r = (set: string) => set[Math.floor(Math.random() * set.length)];
+  document.querySelectorAll<HTMLElement>('.works-item').forEach(item => {
+    const row = item.querySelector<HTMLAnchorElement>('.works-row');
+    const path = item.querySelector<SVGPathElement>('.brush-stroke path');
+    if (!row || !path) return;
 
-  document.querySelectorAll<HTMLAnchorElement>('.works-list a[data-text]').forEach(row => {
-    const el = row.querySelector<HTMLElement>('.works-title');
-    const text = row.getAttribute('data-text');
-    if (!el || !text) return;
-    let iv: ReturnType<typeof setInterval>;
+    const len = path.getTotalLength();
+    path.style.strokeDasharray = String(len);
+    path.style.strokeDashoffset = String(len);
+    path.style.transition = 'none';
 
     row.addEventListener('mouseenter', () => {
-      clearInterval(iv);
-      let iter = 0;
-      iv = setInterval(() => {
-        el.innerHTML = text.split('').map((c, i) => {
-          if (c === ' ') return ' ';
-          if (i < iter - 1) return text[i];
-          if (i === Math.floor(iter)) return '<span style="color:#d4a657;border-right:2px solid #d4a657">' + r(mixed) + '</span>';
-          return '<span style="color:var(--color-text-secondary)">' + r(mixed) + '</span>';
-        }).join('');
-        iter += 0.55;
-        if (iter > text.length) { el.textContent = text; clearInterval(iv); }
-      }, 35);
+      path.style.transition = 'stroke-dashoffset 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      path.style.strokeDashoffset = '0';
     });
 
     row.addEventListener('mouseleave', () => {
-      clearInterval(iv);
-      el.textContent = text;
+      path.style.transition = 'stroke-dashoffset 0.35s ease-in';
+      path.style.strokeDashoffset = String(len);
     });
   });
 </script>
@@ -332,6 +338,28 @@ const projectLinks = [
     color: inherit;
     line-height: 1.1;
     letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Brushstroke SVG overlay */
+  .brush-stroke {
+    position: absolute;
+    left: 0;
+    top: 54%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: clamp(12px, 1.8vw, 22px);
+    pointer-events: none;
+    overflow: visible;
+  }
+  .brush-stroke path {
+    fill: none;
+    stroke: var(--color-amber-400);
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.75;
   }
 
   .works-arrow {
