@@ -300,7 +300,6 @@ const projectLinks = [
     transition: opacity 0.2s ease, color 0.2s ease;
   }
   .works-row:hover {
-    opacity: 0.6;
     color: var(--color-amber-500);
   }
 
@@ -316,21 +315,20 @@ const projectLinks = [
     flex-wrap: wrap;
   }
 
-  .works-letter {
+  :global(.works-letter) {
     display: inline-block;
-    transition: transform 0.3s ease, color 0.2s ease;
   }
 
   @keyframes letterWave {
     0%   { transform: translateY(0); }
-    40%  { transform: translateY(-10px); }
-    70%  { transform: translateY(3px); }
+    40%  { transform: translateY(-12px); }
+    70%  { transform: translateY(4px); }
     100% { transform: translateY(0); }
   }
 
-  .works-row:hover .works-letter {
-    animation: letterWave 0.6s ease forwards;
-    animation-delay: calc(var(--i) * 0.03s);
+  :global(.works-row:hover .works-letter) {
+    animation: letterWave 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+    animation-delay: calc(var(--i) * 0.04s);
   }
 
   .works-arrow {
